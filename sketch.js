@@ -1,3 +1,7 @@
+// Perlin Noise Wave (Water)
+
+
+// Player
 let player = {
   // Horizontal
   x: 200,
@@ -25,18 +29,20 @@ let canvas = {
 };
 
 let movingObjects = [
-  { x: 300, y: 500, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
-  { x: 100, y: 300, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
+  { x: 300, y: 650, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
+  { x: 500, y: 300, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
 ]
 
 // Platforms
 let objects = [
-  { x: 200, y: 700, width: 250, height: 30, color: 0 },
-  { x: 550, y: 800, width: 250, height: 30, color: 0 },
-  { x: 900, y: 800, width: 250, height: 30, color: 0 },
-  { x: 1200, y: 700, width: 250, height: 30, color: 0 },
-  { x: 1500, y: 500, width: 250, height: 30, color: 0 },
-  { x: 1800, y: 300, width: 250, height: 30, color: 0 },
+  { x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 },
+  { x: 0, y: 700, width: 250, height: 300, color: 50, stroke: 50 },
+  { x: 400, y: 700, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 550, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 900, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 1200, y: 700, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 1500, y: 500, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 1800, y: 300, width: 250, height: 30, color: 0, stroke: 0 },
 ]
 
 let gravity = 9.82;
@@ -51,10 +57,10 @@ function setup() {
 }
 
 function draw() {
-  background(70, 123, 117);
+  background(120, 186, 220);
 
+  // Move "viewport" with the player movement
   translate(-player.x+canvas.width/3, 0);
-
 
   // Create moving platforms
   for (i = 0; i < movingObjects.length; i++) {
@@ -74,11 +80,10 @@ function draw() {
 
   // Create platforms
   for (i = 0; i < objects.length; i++) {
+    stroke(objects[i].stroke);
     fill(objects[i].color);
     rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
   }
-
-
 
   // Draw player
   player.draw();
@@ -97,7 +102,35 @@ function draw() {
   }
 
   updateObject(player);
+
+  // Perlin Noise Wave (Water)
+  stroke(59, 144, 143);
+  fill(59, 144, 143);
+  // We are going to draw a polygon out of the wave points
+  beginShape();
+
+  let xoff = 300; // 2D Noise
+
+  // Iterate over horizontal pixels
+  for (let x = player.x - canvas.width; x <= player.x + canvas.width; x += 10) {
+    // Calculate a y value according to noise, map to
+
+    // 2D Noise
+    let y = map(noise(xoff, yoff), 0, 2, canvas.height-100, canvas.height);
+
+    // Set the vertex
+    vertex(x, y);
+    // Increment x dimension for noise
+    xoff += 0.05;
+  }
+  // increment y dimension for noise
+  yoff += 0.01;
+  vertex(player.x+canvas.width, height);
+  vertex(player.x-canvas.width, height);
+  endShape(CLOSE);
 }
+
+let yoff = 0.0;
 
 function mousePressed() {
   console.log('x: ' + mouseX + ', y: ' + mouseY);
