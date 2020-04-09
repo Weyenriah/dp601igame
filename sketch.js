@@ -24,6 +24,11 @@ let canvas = {
   width: 800
 };
 
+let movingObjects = [
+  { x: 300, y: 500, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
+  { x: 100, y: 300, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
+]
+
 // Platforms
 let objects = [
   { x: 200, y: 700, width: 250, height: 30, color: 0 },
@@ -50,11 +55,30 @@ function draw() {
 
   translate(-player.x+canvas.width/3, 0);
 
+
+  // Create moving platforms
+  for (i = 0; i < movingObjects.length; i++) {
+    moveObject(movingObjects[i], movingObjects[i].speedX * deltaTime / 100, 0);
+
+    if(movingObjects[i].x < movingObjects[i].leftMostX) {
+      movingObjects[i].speedX = movingObjects[i].movementSpeed;
+    }
+
+    if(movingObjects[i].x > movingObjects[i].rightMostX) {
+      movingObjects[i].speedX = -movingObjects[i].movementSpeed;
+    }
+
+    fill(movingObjects[i].color);
+    rect(movingObjects[i].x, movingObjects[i].y, movingObjects[i].width, movingObjects[i].height);
+  }
+
   // Create platforms
   for (i = 0; i < objects.length; i++) {
     fill(objects[i].color);
     rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
   }
+
+
 
   // Draw player
   player.draw();
