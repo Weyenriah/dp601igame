@@ -28,11 +28,10 @@ let canvas = {
 let objects = [
   { x: 200, y: 700, width: 250, height: 30, color: 0 },
   { x: 550, y: 800, width: 250, height: 30, color: 0 },
-  { x: 900, y: 700, width: 250, height: 30, color: 0 },
-  { x: 980, y: 500, width: 250, height: 30, color: 0 },
-  { x: 930, y: 300, width: 250, height: 30, color: 0 },
-  { x: 550, y: 210, width: 250, height: 30, color: 0 },
-  { x: 140, y: 500, width: 250, height: 30, color: 0 },
+  { x: 900, y: 800, width: 250, height: 30, color: 0 },
+  { x: 1200, y: 700, width: 250, height: 30, color: 0 },
+  { x: 1500, y: 500, width: 250, height: 30, color: 0 },
+  { x: 1800, y: 300, width: 250, height: 30, color: 0 },
 ]
 
 let gravity = 9.82;
@@ -49,6 +48,8 @@ function setup() {
 function draw() {
   background(70, 123, 117);
 
+  translate(-player.x+canvas.width/3, 0);
+
   // Create platforms
   for (i = 0; i < objects.length; i++) {
     fill(objects[i].color);
@@ -57,11 +58,6 @@ function draw() {
 
   // Draw player
   player.draw();
-
-  // Make a continuous movement on x axis
-  if(player.x >= canvas.width) {
-    player.x = 0;
-  }
 
   // Move "player"
   if (keyIsDown(LEFT_ARROW)) { // Left
