@@ -29,21 +29,20 @@ let canvas = {
 };
 
 let movingObjects = [
-  { x: 300, y: 650, width: 250, height: 30, color: 255, stroke: 255, speedX: 10, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 10 },
-  { x: 2100, y: 200, width: 250, height: 30, color: 255, stroke: 255, speedX: 10, leftMostX: 2000, rightMostX: (2000 + 2 * 250), movementSpeed: 10 },
+  { x: 2100, y: 200, width: 250, height: 30, color: 50, stroke: 50, speedX: 10, leftMostX: 2000, rightMostX: (2000 + 2 * 250), movementSpeed: 10 },
 ]
 
 // Platforms
 let objects = [
-  { x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 },
-  { x: 0, y: 700, width: 250, height: 300, color: 50, stroke: 50 },
-  { x: 400, y: 700, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 550, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 950, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 1200, y: 700, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 1500, y: 500, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 1800, y: 300, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 2900, y: 300, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
+  { x: 0, y: 700, width: 250, height: 300, color: 50, stroke: 50 }, // Start platform
+  { x: 400, y: 700, width: 250, height: 30, color: 50, stroke: 50 },
+  { x: 550, y: 800, width: 250, height: 30, color: 50, stroke: 50 },
+  { x: 950, y: 800, width: 250, height: 30, color: 50, stroke: 50 },
+  { x: 1200, y: 700, width: 250, height: 30, color: 50, stroke: 50 },
+  { x: 1500, y: 500, width: 250, height: 30, color: 50, stroke: 50 },
+  { x: 1800, y: 300, width: 250, height: 30, color: 50, stroke: 50 },
+  { x: 2900, y: 300, width: 250, height: 30, color: 50, stroke: 50 },
   ...movingObjects,
 ]
 
