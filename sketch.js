@@ -56,6 +56,9 @@ function setup() {
   createCanvas(canvas.width, canvas.height);
 }
 
+// For higher water level animation
+let waterLevel = 100.0;
+
 function draw() {
   background(120, 186, 220);
 
@@ -113,10 +116,13 @@ function draw() {
 
   // Iterate over horizontal pixels
   for (let x = player.x - canvas.width; x <= player.x + canvas.width; x += 10) {
-    // Calculate a y value according to noise, map to
+   // Controls water level
+    if(keyIsDown(UP_ARROW)) {
+      waterLevel += 0.0003;
+    }
 
     // 2D Noise
-    let y = map(noise(xoff, yoff), 0, 2, canvas.height-100, canvas.height);
+    let y = map(noise(xoff, yoff), 0, 2, canvas.height-waterLevel /* Height of waterflow */, canvas.height);
 
     // Set the vertex
     vertex(x, y);
@@ -130,6 +136,7 @@ function draw() {
   endShape(CLOSE);
 }
 
+// Has to do with Perlin Noise Wave (Water)
 let yoff = 0.0;
 
 function mousePressed() {
