@@ -29,8 +29,8 @@ let canvas = {
 };
 
 let movingObjects = [
-  { x: 300, y: 650, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
-  { x: 500, y: 300, width: 250, height: 30, color: 255, speedX: 30, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 30 },
+  { x: 300, y: 650, width: 250, height: 30, color: 255, stroke: 255, speedX: 10, leftMostX: 300, rightMostX: (300 + 2 * 250), movementSpeed: 10 },
+  { x: 2100, y: 200, width: 250, height: 30, color: 255, stroke: 255, speedX: 10, leftMostX: 2000, rightMostX: (2000 + 2 * 250), movementSpeed: 10 },
 ]
 
 // Platforms
@@ -39,10 +39,12 @@ let objects = [
   { x: 0, y: 700, width: 250, height: 300, color: 50, stroke: 50 },
   { x: 400, y: 700, width: 250, height: 30, color: 0, stroke: 0 },
   { x: 550, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
-  { x: 900, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 950, y: 800, width: 250, height: 30, color: 0, stroke: 0 },
   { x: 1200, y: 700, width: 250, height: 30, color: 0, stroke: 0 },
   { x: 1500, y: 500, width: 250, height: 30, color: 0, stroke: 0 },
   { x: 1800, y: 300, width: 250, height: 30, color: 0, stroke: 0 },
+  { x: 2900, y: 300, width: 250, height: 30, color: 0, stroke: 0 },
+  ...movingObjects,
 ]
 
 let gravity = 9.82;
@@ -64,22 +66,6 @@ function draw() {
 
   // Move "viewport" with the player movement
   translate(-player.x+canvas.width/3, 0);
-
-  // Create moving platforms
-  for (i = 0; i < movingObjects.length; i++) {
-    moveObject(movingObjects[i], movingObjects[i].speedX * deltaTime / 100, 0);
-
-    if(movingObjects[i].x < movingObjects[i].leftMostX) {
-      movingObjects[i].speedX = movingObjects[i].movementSpeed;
-    }
-
-    if(movingObjects[i].x > movingObjects[i].rightMostX) {
-      movingObjects[i].speedX = -movingObjects[i].movementSpeed;
-    }
-
-    fill(movingObjects[i].color);
-    rect(movingObjects[i].x, movingObjects[i].y, movingObjects[i].width, movingObjects[i].height);
-  }
 
   // Create platforms
   for (i = 0; i < objects.length; i++) {
@@ -105,6 +91,19 @@ function draw() {
   }
 
   updateObject(player);
+
+  // Create moving platforms
+  for (i = 0; i < movingObjects.length; i++) {
+    moveObject(movingObjects[i], movingObjects[i].speedX * deltaTime / 100, 0);
+
+    if(movingObjects[i].x < movingObjects[i].leftMostX) {
+      movingObjects[i].speedX = movingObjects[i].movementSpeed;
+    }
+
+    if(movingObjects[i].x > movingObjects[i].rightMostX) {
+      movingObjects[i].speedX = -movingObjects[i].movementSpeed;
+    }
+  }
 
   // Perlin Noise Wave (Water)
   stroke(59, 144, 143);
@@ -158,7 +157,7 @@ function moveObject(object, dx, dy) {
   };
 
   // Checks if object would collide with any object along x axis
-  let wouldCollideWithX = objects.filter((o) => areColliding(movementAreaX, o));
+  let wouldCollideWithX = objects.filter((o) => o !== object).filter((o) => areColliding(movementAreaX, o));
 
   if(wouldCollideWithX.length > 0) {
     if(dx > 0) { // Going right
@@ -167,7 +166,7 @@ function moveObject(object, dx, dy) {
 
       // Moves object to closest wall that it collides with
       object.x = closestWall - object.width;
-    } else { // Going left
+    } else if (dx < 0) { // Going left
       // Checks which right wall is the closest
       let closestWall = Math.max(...wouldCollideWithX.map((o) => o.x + o.width));
 
@@ -191,7 +190,7 @@ function moveObject(object, dx, dy) {
   };
 
   // Checks if object would collide with any object along y axis
-  let wouldCollideWithY = objects.filter((o) => areColliding(movementAreaY, o));
+  let wouldCollideWithY = objects.filter((o) => o !== object).filter((o) => areColliding(movementAreaY, o));
 
   if(wouldCollideWithY.length > 0) {
     if(dy > 0) { // Going down
