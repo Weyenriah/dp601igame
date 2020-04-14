@@ -117,6 +117,10 @@ function draw() {
   vertex(player.x-canvas.width, height);
 
   endShape(CLOSE);
+
+  if(player.y >= canvas.height) {
+    document.getElementById('game-over').classList.add('display');
+  }
 }
 
 // Has to do with Perlin Noise Wave (Water)
