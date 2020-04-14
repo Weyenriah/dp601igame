@@ -19,5 +19,11 @@ let player = {
     stroke(this.stroke);
     fill(this.color.r, this.color.g, this.color.b);
     rect(this.x, this.y, this.width, this.height);
+  },
+  isOnObject (object) {
+    return player.y + player.height === object.y && player.x + player.width > object.x && player.x < object.x + object.width
+  },
+  isOnObjects (objects) {
+    return objects.some(this.isOnObject)
   }
 };

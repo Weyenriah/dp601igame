@@ -1,6 +1,7 @@
 /*
  * MAIN FILE
  */
+
 let canvas = {
   // Height + Width is as big as user web browser window
   height: document.body.clientHeight,
@@ -52,7 +53,7 @@ function draw() {
     moveObject(player, player.movementSpeed * deltaTime / 100, 0);
   }
   if (keyIsDown(UP_ARROW)) { // Up
-    if (objects.some((o) => player.y + player.height === o.y && player.x + player.width > o.x && player.x < o.x + o.width)) {
+    if (player.isOnObjects(objects)) {
       player.speedY += jumpForce;
     }
   }
@@ -72,7 +73,19 @@ function draw() {
     }
   }
 
-  // Perlin Noise Wave (Water)
+  // Breaking platforms
+  for (let i = 0; i < breakingObjects.length; i++) {
+    if(player.isOnObject(breakingObjects[i])) {
+      setTimeout(function () { breakingObjects[i].y += 4; }, 300);
+    }
+    if(!player.isOnObject(breakingObjects[i])) {
+      setTimeout(function () { breakingObjects[i].y += 0; }, 1000);
+    }
+  }
+
+  /*
+   * Perlin Noise Wave (Water)
+   */
   stroke(59, 144, 143);
   fill(59, 144, 143);
   // Draw a polygon out of the wave points
@@ -99,13 +112,12 @@ function draw() {
   yoff += 0.01;
   vertex(player.x+canvas.width, height);
   vertex(player.x-canvas.width, height);
+
   endShape(CLOSE);
 }
 
 // Has to do with Perlin Noise Wave (Water)
 let yoff = 0.0;
-
-
 
 // Get coordinates when clicking on screen --- Development only
 function mousePressed() {
