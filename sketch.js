@@ -53,7 +53,7 @@ function draw() {
     moveObject(player, player.movementSpeed * deltaTime / 100, 0);
   }
   if (keyIsDown(UP_ARROW)) { // Up
-    if (player.isOnObjects(objects)) {
+    if (player.isOnObjects(objects.filter(aliveObject))) {
       player.speedY += jumpForce;
     }
   }
@@ -76,10 +76,13 @@ function draw() {
   // Breaking platforms
   for (let i = 0; i < breakingObjects.length; i++) {
     if(player.isOnObject(breakingObjects[i])) {
-      setTimeout(function () { breakingObjects[i].y += 4; }, 300);
+      breakingObjects[i].touches = true;
     }
-    if(!player.isOnObject(breakingObjects[i])) {
-      setTimeout(function () { breakingObjects[i].y += 0; }, 1000);
+    if(breakingObjects[i].touches) {
+      breakingObjects[i].health -= deltaTime / 100;
+    }
+    if(breakingObjects[i].health <= 0) {
+      breakingObjects[i].color = 100;
     }
   }
 
