@@ -4,8 +4,8 @@
 
 let canvas = {
   // Height + Width is as big as user web browser window
-  height: document.body.clientHeight,
-  width: document.body.clientWidth
+  height: 700,
+  width: 1200
 };
 
 // Platforms
