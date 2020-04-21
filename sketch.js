@@ -118,7 +118,8 @@ function draw() {
 
   endShape(CLOSE);
 
-  if(player.y >= canvas.height) {
+  // Game over --- At waterlevel
+  if(player.y >= canvas.height - waterLevel) {
     document.getElementById('game-over').classList.add('display');
   }
 }
