@@ -30,8 +30,8 @@ let levels = [
       player.speedY = 0;
     },
     characters: [
-      // { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
-      // { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25 }, // Denier
+      { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
+      { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25 }, // Denier
     ],
   },
   {
@@ -201,6 +201,20 @@ function draw() {
   // Game over-screen --- At waterlevel
   if(player.y >= canvas.height - levels[level].waterLevel) {
     document.getElementById('game-over').classList.add('display');
+  }
+
+  if(mouseIsPressed) {
+    let mX = mouseX - player.x
+    let pressedCharacter = levels[level].characters.find((c) => {
+      return mX >= c.x &&
+        mX <= c.x + c.width &&
+        mouseY >= c.y &&
+        mouseY <= c.y + c.height
+
+    })
+    if (pressedCharacter != null) {
+      pressedCharacter.color = 0;
+    }
   }
 
   let nextLevel = levels[level].nextLevel();
