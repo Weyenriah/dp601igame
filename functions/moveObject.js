@@ -9,7 +9,7 @@ function moveObject(object, dx, dy) {
   };
 
   // Checks if object would collide with any object along x axis
-  let wouldCollideWithX = objects.filter((o) => o !== object && aliveObject(o)).filter((o) => areColliding(movementAreaX, o));
+  let wouldCollideWithX = levels[level].objects.filter((o) => o !== object && aliveObject(o)).filter((o) => areColliding(movementAreaX, o));
 
   if(wouldCollideWithX.length > 0) {
     if(dx > 0) { // Going right
@@ -42,7 +42,7 @@ function moveObject(object, dx, dy) {
   };
 
   // Checks if object would collide with any object along y axis
-  let wouldCollideWithY = objects.filter((o) => o !== object && aliveObject(o)).filter((o) => areColliding(movementAreaY, o));
+  let wouldCollideWithY = levels[level].objects.filter((o) => o !== object && aliveObject(o)).filter((o) => areColliding(movementAreaY, o));
 
   if(wouldCollideWithY.length > 0) {
     if(dy > 0) { // Going down

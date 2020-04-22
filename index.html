@@ -12,22 +12,17 @@
     <script src="functions/updateObject.js" type="text/javascript"></script>
     <!-- Objects -->
     <script src="objects/player.js" type="text/javascript"></script>
-    <script src="objects/normalPlatforms.js" type="text/javascript"></script>
-    <script src="objects/movingPlatforms.js" type="text/javascript"></script>
-    <script src="objects/breakingPlatforms.js" type="text/javascript"></script>
     <!-- Main CSS -->
     <link rel="stylesheet" type="text/css" href="content/css/style.css">
 </head>
 <body>
     <!-- The whole thing -->
-    <div id="the-game">
-        <script src="sketch.js" type="text/javascript"></script>
-    </div>
+    <script src="sketch.js" type="text/javascript"></script>
 
     <div id="game-over">
         <p>GAME OVER</p>
         <form>
-            <button type="button" onclick="window.location.reload()">Starta om</button>
+            <button type="button" onclick="gameOver()">Starta om</button>
         </form>
     </div>
 </body>
