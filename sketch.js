@@ -46,8 +46,9 @@ let levels = [
       { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25, level: 2 }, // Denier
     ],
     talking: [
-      // { x: 0, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 },
-      // { x: 600, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 }
+      { x: -100, y: 70, width: 300, height: 200, color: 255, stroke: 200, msg: 'Hej!', show: 1, disappear: 5 },
+      { x: 600, y: 70, width: 300, height: 200, color: 255, stroke: 200, msg: 'Åh, nej, inte du igen!', show: 5, disappear: 10},
+      { x: -100, y: 70, width: 300, height: 200, color: 255, stroke: 200, msg: 'Äsch, sluta vara sånn nu...', show: 10, disappear: 15 }
     ]
   },
   {
@@ -79,6 +80,7 @@ let levels = [
         { type: 'normal', x: 3400, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
       ]
       this.waterLevel = 100.0;
+      time = 0.0;
     },
     characters: [
       // { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
@@ -110,6 +112,7 @@ let levels = [
         // { type: 'breaking', x: 800, y: 400, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 },
       ]
       this.waterLevel = 100.0;
+      time = 0.0;
     },
     characters: [
       // { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
@@ -121,6 +124,8 @@ let levels = [
     ]
   },
 ]
+
+let time = 0;
 
 let level = 0;
 
@@ -139,6 +144,9 @@ function draw() {
 
   // Move "viewport" with the player movement
   translate(-player.x+canvas.width/3, 0);
+
+  // Timer -- For timing talking
+  time += deltaTime / 1000;
 
   // Create platforms
   for (i = 0; i < levels[level].objects.length; i++) {
@@ -232,10 +240,16 @@ function draw() {
     rect(levels[level].characters[i].x, levels[level].characters[i].y, levels[level].characters[i].width, levels[level].characters[i].height);
   }
 
-  for (i = 0; i < levels[level].talking.length; i++) {
-    stroke(levels[level].talking[i].stroke);
-    fill(levels[level].talking[i].color);
-    rect(levels[level].talking[i].x, levels[level].talking[i].y, levels[level].talking[i].width, levels[level].talking[i].height);
+  // Draw talking bubbles for characters
+  let talking = levels[level].talking.filter((t) => time > t.show && time < t.disappear);
+
+  for (i = 0; i < talking.length; i++) {
+    stroke(talking[i].stroke);
+    fill(talking[i].color);
+    rect(talking[i].x, talking[i].y, talking[i].width, talking[i].height, 5);
+    fill(0);
+    textSize(18);
+    text(talking[i].msg, talking[i].x + 10, talking[i].y + 30)
   }
 
   // Game over-screen --- At waterlevel
