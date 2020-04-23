@@ -18,8 +18,20 @@ let levels = [
     ],
     jumpForce: -30,
     nextLevel() {
-      if(player.x > 1450) {
-        return 1;
+      if(mouseIsPressed) {
+        let mX = mouseX - player.x;
+
+        let pressedCharacter = levels[level].characters.find((c) => {
+          return mX >= c.x &&
+            mX <= c.x + c.width &&
+            mouseY >= c.y &&
+            mouseY <= c.y + c.height;
+        });
+
+        if (pressedCharacter != null) {
+          level = pressedCharacter.level;
+          levels[level].reset();
+        }
       }
       return null;
     },
@@ -30,9 +42,52 @@ let levels = [
       player.speedY = 0;
     },
     characters: [
-      { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
-      { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25 }, // Denier
+      { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75, level: 1 }, // Activist
+      { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25, level: 2 }, // Denier
     ],
+    talking: [
+      // { x: 0, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 },
+      // { x: 600, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 }
+    ]
+  },
+  {
+    waterLevel: 100.0,
+    waterIsRising: 0.0,
+    objects: [],
+    jumpForce: -20, // Jumpforce lower (because of player choice)
+    nextLevel() {
+      return null;
+    },
+    reset() {
+      player.x = 200;
+      player.y = 0;
+      player.speedX = 0;
+      player.speedY = 0;
+      this.objects = [
+        { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
+        { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform
+        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 1
+        { type: 'normal', x: 800, y: 450, width: 80, height: 50, color: 50, stroke: 50 }, // 2
+        { type: 'normal', x: 1100, y: 430, width: 90, height: 80, color: 50, stroke: 50 }, // 3 ...
+        { type: 'normal', x: 1400, y: 390, width: 60, height: 110, color: 50, stroke: 50 },
+        { type: 'normal', x: 1550, y: 300, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1900, y: 300, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2200, y: 500, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2500, y: 600, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2850, y: 490, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3200, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3400, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
+      ]
+      this.waterLevel = 100.0;
+    },
+    characters: [
+      // { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
+      // { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25 }, // Denier
+    ],
+    talking: [
+      // { x: 0, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 },
+      // { x: 600, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 }
+    ]
   },
   {
     waterLevel: 100.0,
@@ -60,31 +115,10 @@ let levels = [
       // { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
       // { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25 }, // Denier
     ],
-  },
-  {
-    waterLevel: 100.0,
-    waterIsRising: 0.0,
-    objects: [],
-    jumpForce: -20, // Jumpforce lower (because of player choice)
-    nextLevel() {
-      return null;
-    },
-    reset() {
-      player.x = 200;
-      player.y = 0;
-      player.speedX = 0;
-      player.speedY = 0;
-      this.objects = [
-        { type: 'normal', x: -1900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
-        { type: 'normal', x: -1200, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
-        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
-      ]
-      this.waterLevel = 100.0;
-    },
-    characters: [
-      // { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75 }, // Activist
-      // { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25 }, // Denier
-    ],
+    talking: [
+      // { x: 0, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 },
+      // { x: 600, y: 70, width: 300, height: 200, color: 255, stroke: 200, adder: 1 }
+    ]
   },
 ]
 
@@ -191,30 +225,22 @@ function draw() {
 
   endShape(CLOSE);
 
-  // Characters
+  // Draw characters
   for (i = 0; i < levels[level].characters.length; i++) {
     stroke(levels[level].characters[i].stroke);
     fill(levels[level].characters[i].color);
     rect(levels[level].characters[i].x, levels[level].characters[i].y, levels[level].characters[i].width, levels[level].characters[i].height);
   }
 
+  for (i = 0; i < levels[level].talking.length; i++) {
+    stroke(levels[level].talking[i].stroke);
+    fill(levels[level].talking[i].color);
+    rect(levels[level].talking[i].x, levels[level].talking[i].y, levels[level].talking[i].width, levels[level].talking[i].height);
+  }
+
   // Game over-screen --- At waterlevel
   if(player.y >= canvas.height - levels[level].waterLevel) {
     document.getElementById('game-over').classList.add('display');
-  }
-
-  if(mouseIsPressed) {
-    let mX = mouseX - player.x
-    let pressedCharacter = levels[level].characters.find((c) => {
-      return mX >= c.x &&
-        mX <= c.x + c.width &&
-        mouseY >= c.y &&
-        mouseY <= c.y + c.height
-
-    })
-    if (pressedCharacter != null) {
-      pressedCharacter.color = 0;
-    }
   }
 
   let nextLevel = levels[level].nextLevel();
