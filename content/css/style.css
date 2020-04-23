@@ -8,37 +8,55 @@ html, body {
     background-color: black;
 }
 
-#game-over {
+#game-over, #you-succeeded {
     position: absolute;
     width: 1200px;
     height: 700px;
-    background-color: rgba(255, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-size: 60px;
-    color: darkred;
     visibility: hidden;
 }
 
-#game-over.display {
+#game-over {
+    background-color: rgba(255, 0, 0, 0.5);
+    color: darkred;
+}
+
+#you-succeeded {
+    background-color: rgba(0, 255, 0, 0.5);
+    color: darkgreen;
+}
+
+#game-over.display, #you-succeeded.display {
     visibility: visible;
 }
 
-#game-over p {
+#game-over p, #you-succeeded p {
     margin: 0;
 }
 
-#game-over button {
+#game-over button, #you-succeeded button {
     padding: 20px 100px;
     font-size: 20px;
-    background-color: darkred;
     border: none;
     border-radius: 3px;
     color: white;
     transition: all .2s;
     cursor: pointer;
+}
+
+#you-succeeded button {
+    background-color: darkgreen;
+}
+#you-succeeded button:hover {
+
+}
+
+#game-over button {
+    background-color: darkred;
 }
 #game-over button:hover {
     background-color: #c81f1f;

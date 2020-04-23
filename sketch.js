@@ -40,6 +40,7 @@ let levels = [
       player.y = 0;
       player.speedX = 0;
       player.speedY = 0;
+      time = 0.0;
     },
     characters: [
       { x: -150, y: 300, width: 250, height: 400, color: 75, stroke: 75, level: 1 }, // Activist
@@ -236,7 +237,7 @@ let levels = [
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
       if(player.x > 500) {
-        console.log('Du vann!')
+        document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
@@ -272,7 +273,7 @@ let levels = [
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
       if(player.x > 500) {
-        console.log('Du vann!')
+        document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
@@ -308,7 +309,7 @@ let levels = [
     jumpForce: -30,
     nextLevel() {
       if(player.x > 500) {
-        console.log('Du vann!')
+        document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
@@ -342,7 +343,7 @@ let levels = [
     jumpForce: -30,
     nextLevel() {
       if(player.x > 500) {
-        console.log('Du vann!')
+        document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
@@ -525,4 +526,10 @@ function mousePressed() {
 function gameOver() {
   levels[level].reset();
   document.getElementById('game-over').classList.remove('display');
+}
+
+function youDidIt() {
+  level = 0;
+  levels[level].reset();
+  document.getElementById('you-succeeded').classList.remove('display');
 }
