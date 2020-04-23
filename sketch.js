@@ -60,7 +60,7 @@ let levels = [
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
-      if(player.x > 500) {
+      if(player.x > 4200) {
         return 3;
       }
       return null;
@@ -72,10 +72,10 @@ let levels = [
       player.speedY = 0;
       this.objects = [
         { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
-        { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform
+        { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform ("Floor")
         { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 1
-        { type: 'normal', x: 1100, y: 430, width: 90, height: 80, color: 50, stroke: 50 }, // 2
-        { type: 'normal', x: 1400, y: 390, width: 60, height: 110, color: 50, stroke: 50 }, // 3 ...
+        { type: 'normal', x: 1100, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 2
+        { type: 'normal', x: 1400, y: 370, width: 250, height: 30, color: 50, stroke: 50 }, // 3 ...
         { type: 'normal', x: 1550, y: 300, width: 250, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 1900, y: 300, width: 250, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 2200, y: 500, width: 250, height: 30, color: 50, stroke: 50 },
@@ -83,6 +83,9 @@ let levels = [
         { type: 'normal', x: 2850, y: 490, width: 250, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 3200, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 3400, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3600, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3800, y: 550, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 },
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -99,11 +102,11 @@ let levels = [
   },
   { // Level 1 -- Choice: Car -- 2
     waterLevel: 100.0,
-    waterIsRising: 0.0003, // Water rising (because of player choice)
+    waterIsRising: 0.00055, // Water rising (because of player choice)
     objects: [],
     jumpForce: -30,
     nextLevel() {
-      if(player.x > 500) {
+      if(player.x > 4200) {
         return 4;
       }
       return null;
@@ -116,9 +119,19 @@ let levels = [
       this.objects = [
         { type: 'normal', x: -1900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: -1200, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
-        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
-        // { type: 'moving', x: 2150, y: 200, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 2150, rightMostX: (2150 + 2 * 250), movementSpeed: 10 },
-        // { type: 'breaking', x: 800, y: 400, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 },
+        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 1
+        { type: 'normal', x: 800, y: 200, width: 250, height: 30, color: 50, stroke: 50 }, // 2
+        { type: 'normal', x: 1200, y: 300, width: 50, height: 30, color: 50, stroke: 50 }, // 3 ...
+        { type: 'normal', x: 1400, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1600, y: 500, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1800, y: 450, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2230, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2430, y: 350, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2700, y: 450, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3100, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3500, y: 200, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3850, y: 300, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 4100, y: 400, width: 1800, height: 300, color: 50, stroke: 50 },
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -163,9 +176,6 @@ let levels = [
       this.objects = [
         { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform
-        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 1
-        { type: 'normal', x: 1100, y: 430, width: 90, height: 80, color: 50, stroke: 50 }, // 2
-        { type: 'normal', x: 1400, y: 390, width: 60, height: 110, color: 50, stroke: 50 }, // 3 ...
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -213,7 +223,6 @@ let levels = [
       this.objects = [
         { type: 'normal', x: -1900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: -1200, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
-        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -398,8 +407,8 @@ function draw() {
 
   // Create platforms
   for (i = 0; i < levels[level].objects.length; i++) {
-    stroke(levels[level].objects[i].stroke);
     fill(levels[level].objects[i].color);
+    stroke(levels[level].objects[i].stroke);
     rect(levels[level].objects[i].x, levels[level].objects[i].y, levels[level].objects[i].width, levels[level].objects[i].height);
   }
 
