@@ -239,6 +239,9 @@ let levels = [
       { x: 600, y: 170, width: 300, height: 45, color: 255, stroke: 200, show: 16, disappear: 45, msg: 'VAL: Skriv inte på!' },
     ]
   },
+
+
+
   { // Level 2 -- Choice: Sign (after Choice: Walk) -- 5
     waterLevel: 100.0,
     waterIsRising: 0.0,
@@ -311,7 +314,7 @@ let levels = [
       { x: 600, y: 150, width: 300, height: 130, color: 255, stroke: 200, show: 6, disappear: 11, msg: 'Riktigt bra! Utvecklingen kommer gå snabbt framåt! Se upp dock, du behöver fortfarande spara på energi.'},
     ]
   },
-  { // Level 2 -- Choice: Sign (after Choice: Car) -- 4
+  { // Level 2 -- Choice: Sign (after Choice: Car) -- 7
     waterLevel: 100.0,
     waterIsRising: 0.0003, // Water rising (because of player choice)
     objects: [],
@@ -345,7 +348,7 @@ let levels = [
       { x: -100, y: 170, width: 300, height: 120, color: 255, stroke: 200, show: 5, disappear: 10, msg: 'Äsch, inte så farligt! Miljön kommer överleva tack vare dig! Men se upp, vattnet ökar fortfarande.' },
     ]
   },
-  { // Level 2 -- Choice: Not sign (after Choice: Car) -- 4
+  { // Level 2 -- Choice: Not sign (after Choice: Car) -- 8
     waterLevel: 100.0,
     waterIsRising: 0.0003, // Water rising (because of player choice)
     objects: [],
