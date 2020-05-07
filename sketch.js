@@ -15,6 +15,7 @@ let levels = [
     objects: [
       { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
       { type: 'normal', x: 0, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
+      { type: 'normal', x: 1500, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
     ],
     jumpForce: -30,
     nextLevel() {
@@ -85,7 +86,8 @@ let levels = [
         { type: 'normal', x: 3400, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 3600, y: 490, width: 50, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 3800, y: 550, width: 250, height: 30, color: 50, stroke: 50 },
-        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 },
+        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // End platform
+        { type: 'normal', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -131,7 +133,8 @@ let levels = [
         { type: 'normal', x: 3100, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 3500, y: 200, width: 250, height: 30, color: 50, stroke: 50 },
         { type: 'normal', x: 3850, y: 300, width: 50, height: 30, color: 50, stroke: 50 },
-        { type: 'normal', x: 4100, y: 400, width: 1800, height: 300, color: 50, stroke: 50 },
+        { type: 'normal', x: 4100, y: 400, width: 1800, height: 300, color: 50, stroke: 50 }, // End platform
+        { type: 'normal', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -176,6 +179,8 @@ let levels = [
       this.objects = [
         { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform
+        { type: 'normal', x: 1500, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
+
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -223,6 +228,7 @@ let levels = [
       this.objects = [
         { type: 'normal', x: -1900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: -1200, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
+        { type: 'normal', x: 1500, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -239,16 +245,13 @@ let levels = [
       { x: 600, y: 170, width: 300, height: 45, color: 255, stroke: 200, show: 16, disappear: 45, msg: 'VAL: Skriv inte på!' },
     ]
   },
-
-
-
   { // Level 2 -- Choice: Sign (after Choice: Walk) -- 5
     waterLevel: 100.0,
     waterIsRising: 0.0,
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
-      if(player.x > 500) {
+      if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
@@ -260,11 +263,26 @@ let levels = [
       player.speedY = 0;
       this.objects = [
         { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
-        { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform
+        { type: 'normal', x: 0, y: 500, width: 300, height: 300, color: 50, stroke: 50 }, // Start platform
         { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 1
-        { type: 'normal', x: 1100, y: 430, width: 90, height: 80, color: 50, stroke: 50 }, // 2
-        { type: 'normal', x: 1400, y: 390, width: 60, height: 110, color: 50, stroke: 50 }, // 3 ...
-        { type: 'breaking', x: 800, y: 400, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 650, y: 290, width: 250, height: 30, color: 50, stroke: 50 }, // 2
+        { type: 'breaking', x: 950, y: 200, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms || 3 ...
+        { type: 'normal', x: 1100, y: 390, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1300, y: 390, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 1500, y: 390, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 1600, y: 310, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1780, y: 280, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 2100, y: 280, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', x: 2400, y: 340, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', x: 2700, y: 400, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 3000, y: 450, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3100, y: 430, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3300, y: 430, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 3400, y: 430, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', x: 3700, y: 430, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 4000, y: 420, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // End platform
+        { type: 'normal', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -284,23 +302,31 @@ let levels = [
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
-      if(player.x > 500) {
+      if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
     reset() {
-      player.x = 200;
+      player.x = 2300;
       player.y = 0;
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
         { type: 'normal', x: -700, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
-        { type: 'normal', x: 0, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // Start platform
+        { type: 'normal', x: 0, y: 500, width: 300, height: 300, color: 50, stroke: 50 }, // Start platform
         { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 }, // 1
-        { type: 'normal', x: 1100, y: 430, width: 90, height: 80, color: 50, stroke: 50 }, // 2
-        { type: 'normal', x: 1400, y: 390, width: 60, height: 110, color: 50, stroke: 50 }, // 3 ...
-        { type: 'moving', x: 2150, y: 200, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 2150, rightMostX: (2150 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'normal', x: 650, y: 290, width: 250, height: 30, color: 50, stroke: 50 }, // 2
+        { type: 'moving', x: 950, y: 200, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 950, rightMostX: (950 + 2 * 250), movementSpeed: 10 }, // Moving platforms || 3 ...
+        { type: 'normal', x: 1800, y: 220, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'moving', x: 1950, y: 200, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 1950, rightMostX: (1950 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'normal', x: 2300, y: 150, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2800, y: 220, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3000, y: 240, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3200, y: 260, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'moving', x: 3350, y: 240, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 3350, rightMostX: (3350 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // End platform
+        { type: 'normal', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -310,8 +336,8 @@ let levels = [
       { x: 700, y: 300, width: 250, height: 400, color: 25, stroke: 25, level: 1 }, // Denier
     ],
     talking: [
-      { x: -100, y: 170, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 6, msg: 'Va? Hur kunde du inte skriva på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
-      { x: 600, y: 150, width: 300, height: 130, color: 255, stroke: 200, show: 6, disappear: 11, msg: 'Riktigt bra! Utvecklingen kommer gå snabbt framåt! Se upp dock, du behöver fortfarande spara på energi.'},
+      { x: -100, y: 170, width: 300, height: 110, color: 255, stroke: 200, show: 0.5, disappear: 6, msg: 'Va? Hur kunde du inte skriva på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
+      { x: 600, y: 170, width: 300, height: 110, color: 255, stroke: 200, show: 6, disappear: 13, msg: 'Riktigt bra! Utvecklingen kommer gå snabbt framåt! Se upp dock, du behöver fortfarande spara på energi.'},
     ]
   },
   { // Level 2 -- Choice: Sign (after Choice: Car) -- 7
@@ -320,21 +346,35 @@ let levels = [
     objects: [],
     jumpForce: -30,
     nextLevel() {
-      if(player.x > 500) {
+      if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
     reset() {
-      player.x = 200;
+      player.x = 4100;
       player.y = 0;
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
         { type: 'normal', x: -1900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: -1200, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
-        { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
-        { type: 'breaking', x: 800, y: 400, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 450, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 800, y: 200, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 1000, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1250, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 1400, y: 200, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 1750, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1950, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 2150, y: 440, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 2530, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2780, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2940, y: 360, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 3100, y: 400, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 3500, y: 360, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'breaking', x: 3700, y: 380, width: 250, height: 30, color: 255, stroke: 255, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // End platform
+        { type: 'normal', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -354,13 +394,13 @@ let levels = [
     objects: [],
     jumpForce: -30,
     nextLevel() {
-      if(player.x > 500) {
+      if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
       }
       return null;
     },
     reset() {
-      player.x = 200;
+      player.x = 3600;
       player.y = 0;
       player.speedX = 0;
       player.speedY = 0;
@@ -368,7 +408,16 @@ let levels = [
         { type: 'normal', x: -1900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall START
         { type: 'normal', x: -1200, y: 500, width: 1500, height: 300, color: 50, stroke: 50 }, // Start platform
         { type: 'normal', x: 400, y: 400, width: 250, height: 30, color: 50, stroke: 50 },
-        { type: 'moving', x: 2150, y: 200, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 2150, rightMostX: (2150 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'moving', x: 700, y: 200, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 700, rightMostX: (700 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'normal', x: 1600, y: 200, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 1800, y: 300, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 2000, y: 400, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'moving', x: 2200, y: 400, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 2200, rightMostX: (2200 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'moving', x: 2700, y: 350, width: 250, height: 30, color: 100, stroke: 100, speedX: 10, leftMostX: 2700, rightMostX: (2700 + 2 * 250), movementSpeed: 10 }, // Moving platforms
+        { type: 'normal', x: 3600, y: 300, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 3850, y: 300, width: 50, height: 30, color: 50, stroke: 50 },
+        { type: 'normal', x: 4100, y: 500, width: 1800, height: 300, color: 50, stroke: 50 }, // End platform
+        { type: 'normal', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 0, stroke: 0 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
