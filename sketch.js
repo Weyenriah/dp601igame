@@ -268,20 +268,20 @@ let levels = [
         { type: 'normal', image: 'platform', x: 0, y: 500, width: 1800, height: 150 }, // Start platform ("Floor")
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 }, // 1
         { type: 'normal', image: 'platform', x: 650, y: 290, width: 250, height: 30 }, // 2
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 950, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms || 3 ...
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 950, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms || 3 ...
         { type: 'normal', image: 'platform', x: 1100, y: 390, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 1300, y: 390, width: 50, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 1500, y: 390, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 1500, y: 390, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 1600, y: 310, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 1780, y: 280, width: 250, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 2100, y: 280, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 2400, y: 340, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 2700, y: 400, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 2100, y: 280, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 2400, y: 340, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 2700, y: 400, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 3000, y: 450, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3100, y: 430, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3300, y: 430, width: 50, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 3400, y: 430, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 3700, y: 430, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3400, y: 430, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3700, y: 430, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 4000, y: 420, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 4100, y: 500, width: 1800, height: 150 }, // End platform ("Floor")
         { type: 'other', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 25, stroke: 25 }, // Wall END
@@ -367,19 +367,19 @@ let levels = [
         { type: 'other', x: -1200, y: 0, width: 700, height: document.body.clientHeight, color: 25, stroke: 25 }, // Wall START
         { type: 'normal', image: 'platform', x: -1200, y: 500, width: 1800, height: 150 }, // Start platform ("Floor")
         { type: 'normal', image: 'platform', x: 450, y: 400, width: 250, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 800, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 800, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 1000, y: 400, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 1250, y: 400, width: 50, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 1400, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 1400, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 1750, y: 400, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 1950, y: 400, width: 50, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 2150, y: 440, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 2150, y: 440, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 2530, y: 400, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 2780, y: 400, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 2940, y: 360, width: 50, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 3100, y: 400, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3100, y: 400, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 3500, y: 360, width: 50, height: 30 },
-        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', x: 3700, y: 380, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
+        { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3700, y: 380, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 4100, y: 500, width: 1800, height: 150, }, // End platform ("Floor")
         { type: 'other', x: 4900, y: 0, width: 700, height: document.body.clientHeight, color: 25, stroke: 25 }, // Wall END
       ]
@@ -464,6 +464,7 @@ function preload() {
   images.breaking1 = loadImage('content/graphic/breaking-platform-1.png');
   images.breaking2 = loadImage('content/graphic/breaking-platform-2.png');
   images.breaking3 = loadImage('content/graphic/breaking-platform-3.png');
+  images.breaking4 = loadImage('content/graphic/breaking-platform-4.png');
 }
 
 // SETUP --- Canvas
@@ -507,7 +508,7 @@ function draw() {
         image(images[levels[level].objects[i].image3], levels[level].objects[i].x, levels[level].objects[i].y, levels[level].objects[i].width, levels[level].objects[i].height);
       }
       if(levels[level].objects[i].health < 0.0) {
-        image(images[levels[level].objects[i].image3], levels[level].objects[i].x, levels[level].objects[i].y, levels[level].objects[i].width, levels[level].objects[i].height);
+        image(images[levels[level].objects[i].image4], levels[level].objects[i].x, levels[level].objects[i].y, levels[level].objects[i].width, levels[level].objects[i].height);
       }
     }
   }
