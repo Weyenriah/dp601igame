@@ -519,13 +519,19 @@ function draw() {
   // Move "player"
   if (keyIsDown(LEFT_ARROW)) { // Left
     moveObject(player, -player.movementSpeed * deltaTime / 100, 0);
+    document.getElementById('game-title').classList.add('remove');
+    document.getElementById('keys').classList.add('remove');
   }
   if (keyIsDown(RIGHT_ARROW)) { // Right
     moveObject(player, player.movementSpeed * deltaTime / 100, 0);
+    document.getElementById('game-title').classList.add('remove');
+    document.getElementById('keys').classList.add('remove');
   }
   if (keyIsDown(UP_ARROW)) { // Up
     if (player.isOnObjects(levels[level].objects.filter(aliveObject))) {
       player.speedY += levels[level].jumpForce;
+      document.getElementById('game-title').classList.add('remove');
+      document.getElementById('keys').classList.add('remove');
     }
   }
 

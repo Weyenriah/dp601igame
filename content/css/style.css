@@ -9,6 +9,32 @@ html, body {
     font-family: "Courier New", Courier, monospace;
 }
 
+/* GAME TITLE VIEW */
+#game-title-view {
+    position: absolute;
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+#game-title-view h1 {
+    margin-left: 50px;
+}
+#keys {
+    align-self: flex-end;
+    margin-bottom: 20px;
+    margin-right: 25px;
+}
+#keys img {
+    height: 150px;
+}
+
+.remove {
+    visibility: hidden;
+}
+
 /* GENERAL LAYOUT */
 #game-over, #you-succeeded {
     position: absolute;
