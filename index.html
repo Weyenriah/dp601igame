@@ -20,14 +20,38 @@
     <script src="sketch.js" type="text/javascript"></script>
 
     <div id="game-over">
-        <p>GAME OVER</p>
+        <h2>GAME OVER</h2>
         <form>
             <button type="button" onclick="gameOver()">Starta om</button>
         </form>
     </div>
 
     <div id="you-succeeded">
-        <p>SPELET SLUT</p>
+        <div id="game-ended">
+            <h2>SPELET SLUT</h2>
+        </div>
+        <section class="info" id="n1a">
+            <h3><span>Nivå: 1</span> | Val: Bil</h3>
+            <p> Bilen är ett färdmedel som länge varit i fokus gällande koldioxidutsläppen, som bidrar till den globala uppvärmningen.
+                Den globala uppvärmningen resulterar i bland annat att vattennivån ökar p.g.a termisk expansion eller smältande glaciärer.
+                Det finns oro att detta kommer leda till stora översvämningar i flera kuststäder i hela världen.</p>
+        </section>
+        <section class="info" id="n1b">
+            <h3><span>Nivå: 1</span> | Val: Gå</h3>
+            <p> Det finns flera skatter på resande, som flygskatten samt energi- och koldioxidskatten på bränsle, detta bland annat för att färdmedel som flyget och bilen bidrar till koldioxidutsläppen.
+                Spelet vill visa på en värld utan färdmedel, där energin behöver sparas för att ta sig längre. </p>
+        </section>
+        <section class="info" id="n2a">
+            <h3><span>Nivå: 2</span> | Val: Skriv inte på</h3>
+            <p> Spelet ska vid detta val porträttera en värld som fortsätter i liknande spår som innan, med snabba, tekniska utvecklingar i samhället.
+                Men att fortsätta på samma linje minskar inte på koldioxidutsläppen,t.ex, som bidrar till global uppvärmning som orsakar torka,
+                ökande vattennivåer och konsekvenser för ett skört ekosystemet. </p>
+        </section>
+        <section class="info" id="n2b">
+            <h3><span>Nivå: 2</span> | Val: Skriv på</h3>
+            <p> Spelet vill porträttera en värld som inte helt har hängt med i utvecklingen när det som varit dåligt för miljön har avverkats helt.
+                Det finns stora behov att inom bland annat energi snabba på utveckling för att mäta upp med de behov som skulle uppstå vid en snabb omvändning. </p>
+        </section>
         <form>
             <button type="button" onclick="youDidIt()">Starta om</button>
         </form>

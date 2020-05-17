@@ -6,8 +6,10 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: black;
+    font-family: "Courier New", Courier, monospace;
 }
 
+/* GENERAL LAYOUT */
 #game-over, #you-succeeded {
     position: absolute;
     width: 1200px;
@@ -16,29 +18,60 @@ html, body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 60px;
     visibility: hidden;
 }
-
+#you-succeeded {
+    background-color: rgba(255, 255, 255, 0.5);
+}
 #game-over {
     background-color: rgba(255, 0, 0, 0.5);
     color: darkred;
 }
-
-#you-succeeded {
-    background-color: rgba(0, 255, 0, 0.5);
-    color: darkgreen;
-}
-
 #game-over.display, #you-succeeded.display {
     visibility: visible;
 }
 
-#game-over p, #you-succeeded p {
+/* WHEN SUCCESS */
+#game-ended {
+    width: 100%;
+    padding: 15px 0;
+    background-color: rgba(0, 255, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+}
+#game-ended h2, #game-over h2 {
     margin: 0;
+    font-size: 47px;
+}
+.info {
+    width: 70%;
+    margin-bottom: 20px;
+    background-color: black;
+    color: white;
+}
+.info h3 {
+    margin: 0;
+    padding: 15px;
+    border-bottom: 1px solid white;
+}
+.info h3 span {
+    color: darkgreen;
+}
+.info p {
+    margin: 0;
+    padding: 15px;
 }
 
+#n1a, #n2a, #n1b, #n2b {
+    display: none;
+}
+#n1a.display, #n2a.display, #n1b.display, #n2b.display {
+    display: block;
+}
+
+/* BUTTON STYLING */
 #game-over button, #you-succeeded button {
+    font-family: "Courier New", Courier, monospace;
     padding: 20px 100px;
     font-size: 20px;
     border: none;
@@ -52,7 +85,7 @@ html, body {
     background-color: darkgreen;
 }
 #you-succeeded button:hover {
-
+    background-color: #009200;
 }
 
 #game-over button {

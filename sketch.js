@@ -253,6 +253,8 @@ let levels = [
     nextLevel() {
       if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
+        document.getElementById('n1b').classList.add('display'); // Walk
+        document.getElementById('n2b').classList.add('display'); // Sign
       }
       return null;
     },
@@ -304,6 +306,8 @@ let levels = [
     nextLevel() {
       if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
+        document.getElementById('n1b').classList.add('display'); // Walk
+        document.getElementById('n2a').classList.add('display'); // Not Sign
       }
       return null;
     },
@@ -348,6 +352,9 @@ let levels = [
     nextLevel() {
       if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
+        document.getElementById('n1a').classList.add('display'); // Car
+        document.getElementById('n2b').classList.add('display'); // Sign
+        this.waterIsRising = 0.0;
       }
       return null;
     },
@@ -396,6 +403,9 @@ let levels = [
     nextLevel() {
       if(player.x > 4200) {
         document.getElementById('you-succeeded').classList.add('display');
+        document.getElementById('n1a').classList.add('display'); // Car
+        document.getElementById('n2a').classList.add('display'); // Not Sign
+        this.waterIsRising = 0.0;
       }
       return null;
     },
@@ -625,8 +635,19 @@ function gameOver() {
   document.getElementById('game-over').classList.remove('display');
 }
 
+// Onclick for Game ended-screen
 function youDidIt() {
   level = 0;
   levels[level].reset();
-  document.getElementById('you-succeeded').classList.remove('display');
+  let views = [
+    'you-succeeded',
+    'n1a',
+    'n1b',
+    'n2a',
+    'n2b',
+  ];
+
+  for(i = 0; i < views.length; i++) {
+    document.getElementById(views[i]).classList.remove('display');
+  }
 }
