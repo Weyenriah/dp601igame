@@ -9,6 +9,20 @@ html, body {
     font-family: "Courier New", Courier, monospace;
 }
 
+#form {
+    position: absolute;
+    width: 1200px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+}
+
+#form a {
+    align-self: flex-end;
+    color: white;
+    margin-bottom: 30px;
+}
+
 /* GAME TITLE VIEW */
 #game-title-view {
     position: absolute;
