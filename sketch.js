@@ -114,7 +114,7 @@ let levels = [
       return null;
     },
     reset() {
-      player.x = 4100;
+      player.x = 200;
       player.y = 0;
       player.speedX = 0;
       player.speedY = 0;
