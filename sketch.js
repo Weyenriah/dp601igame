@@ -7,6 +7,9 @@ let canvas = {
   width: 1200
 };
 
+let debug = false
+let frozen = false
+
 // Level specific information
 let levels = [
   { // Start level -- Dialog and choice -- 0
@@ -45,6 +48,7 @@ let levels = [
       player.y = 0;
       player.speedX = 0;      player.speedY = 0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3, level: 1 }, // Activist
@@ -64,6 +68,9 @@ let levels = [
     stillWater: 200.0,
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 4200, y: 500, width: 122, height: 528 }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -98,6 +105,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
@@ -117,6 +125,9 @@ let levels = [
     jumpForce: -30,
     background: [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 4200, y: 300, width: 122, height: 528 }
     ],
     nextLevel() {
       if(player.x > 4200) {
@@ -149,6 +160,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
@@ -198,6 +210,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3, level: 5 }, // Activist
@@ -250,6 +263,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3, level: 7 }, // Activist
@@ -277,6 +291,7 @@ let levels = [
         document.getElementById('you-succeeded').classList.add('display');
         document.getElementById('n1b').classList.add('display'); // Walk
         document.getElementById('n2b').classList.add('display'); // Sign
+        frozen = true;
       }
       return null;
     },
@@ -310,6 +325,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
@@ -334,6 +350,7 @@ let levels = [
         document.getElementById('you-succeeded').classList.add('display');
         document.getElementById('n1b').classList.add('display'); // Walk
         document.getElementById('n2a').classList.add('display'); // Not Sign
+        frozen = true;
       }
       return null;
     },
@@ -360,6 +377,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
@@ -385,6 +403,7 @@ let levels = [
         document.getElementById('n1a').classList.add('display'); // Car
         document.getElementById('n2b').classList.add('display'); // Sign
         this.waterIsRising = 0.0;
+        frozen = true;
       }
       return null;
     },
@@ -415,6 +434,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
@@ -440,6 +460,7 @@ let levels = [
         document.getElementById('n1a').classList.add('display'); // Car
         document.getElementById('n2a').classList.add('display'); // Not Sign
         this.waterIsRising = 0.0;
+        frozen = true;
       }
       return null;
     },
@@ -465,6 +486,7 @@ let levels = [
       ]
       this.waterLevel = 100.0;
       time = 0.0;
+      frozen = false;
     },
     characters: [
       { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
@@ -506,9 +528,8 @@ function preload() {
   // Wall Images
   images.wall = loadImage('content/graphic/wall.png');
 
-  // Player
-  images.running1 = loadImage('content/graphic/running-1.png');
-  images.running2 = loadImage('content/graphic/running-2.png');
+  // Goal
+  images.goal = loadImage('content/graphic/goal.png');
 
   // Background
   images.backgroundshort = loadImage('content/graphic/background-short.png');
@@ -536,6 +557,13 @@ function draw() {
   for (i = 0; i < levels[level].background.length; i++) {
     image(images[levels[level].background[i].image], levels[level].background[i].x, levels[level].background[i].y, levels[level].background[i].width, levels[level].background[i].height);
   }
+
+  /* Goals
+  if(levels[level].goals.height !== '') {
+    for (i = 0; i < levels[level].goals.length; i++) {
+      image(images[levels[level].goals[i].image], levels[level].goals[i].x, levels[level].goals[i].y, levels[level].goals[i].width, levels[level].goals[i].height);
+    }
+  }*/
 
   /*
    * Perlin Noise Wave (Water) --- Background
@@ -592,21 +620,23 @@ function draw() {
   player.draw();
 
   // Move "player"
-  if (keyIsDown(LEFT_ARROW)) { // Left
-    moveObject(player, -player.movementSpeed * deltaTime / 100, 0);
-    document.getElementById('game-title').classList.add('remove');
-    document.getElementById('keys').classList.add('remove');
-  }
-  if (keyIsDown(RIGHT_ARROW)) { // Right
-    moveObject(player, player.movementSpeed * deltaTime / 100, 0);
-    document.getElementById('game-title').classList.add('remove');
-    document.getElementById('keys').classList.add('remove');
-  }
-  if (keyIsDown(UP_ARROW)) { // Up
-    if (player.isOnObjects(levels[level].objects.filter(aliveObject))) {
-      player.speedY += levels[level].jumpForce;
+  if (!frozen || debug) {
+    if (keyIsDown(LEFT_ARROW)) { // Left
+      moveObject(player, -player.movementSpeed * deltaTime / 100, 0);
       document.getElementById('game-title').classList.add('remove');
       document.getElementById('keys').classList.add('remove');
+    }
+    if (keyIsDown(RIGHT_ARROW)) { // Right
+      moveObject(player, player.movementSpeed * deltaTime / 100, 0);
+      document.getElementById('game-title').classList.add('remove');
+      document.getElementById('keys').classList.add('remove');
+    }
+    if (keyIsDown(UP_ARROW)) { // Up
+      if (player.isOnObjects(levels[level].objects.filter(aliveObject))) {
+        player.speedY += levels[level].jumpForce;
+        document.getElementById('game-title').classList.add('remove');
+        document.getElementById('keys').classList.add('remove');
+      }
     }
   }
 
@@ -692,6 +722,7 @@ function draw() {
   // Game over-screen --- At waterlevel
   if(player.y >= canvas.height - levels[level].waterLevel) {
     document.getElementById('game-over').classList.add('display');
+    frozen = true;
   }
 
   let nextLevel = levels[level].nextLevel();
@@ -704,12 +735,6 @@ function draw() {
 
 // Has to do with Perlin Noise Wave (Water)
 let yoff = 0.0;
-
-// Get coordinates when clicking on screen --- Development only
-function mousePressed() {
-  console.log('x: ' + mouseX + ', y: ' + mouseY);
-  console.log(JSON.stringify(levels[level]));
-}
 
 // Onclick for Game over-screen
 function gameOver() {
