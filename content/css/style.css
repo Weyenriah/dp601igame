@@ -29,7 +29,6 @@ html, body {
     width: 1200px;
     height: 700px;
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     color: white;
 }
@@ -37,8 +36,7 @@ html, body {
     margin-left: 50px;
 }
 #keys {
-    align-self: flex-end;
-    margin-bottom: 20px;
+    margin-top: 20px;
     margin-right: 25px;
 }
 #keys img {
