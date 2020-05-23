@@ -12,6 +12,10 @@ let levels = [
   { // Start level -- Dialog and choice -- 0
     waterLevel: 100.0,
     waterIsRising: 0.0,
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
     objects: [
       { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform
       { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
@@ -39,8 +43,7 @@ let levels = [
     reset() {
       player.x = 200;
       player.y = 0;
-      player.speedX = 0;
-      player.speedY = 0;
+      player.speedX = 0;      player.speedY = 0;
       time = 0.0;
     },
     characters: [
@@ -58,6 +61,10 @@ let levels = [
   { // Level 1 -- Choice: Walk -- 1
     waterLevel: 100.0,
     waterIsRising: 0.0,
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
@@ -105,8 +112,12 @@ let levels = [
   { // Level 1 -- Choice: Car -- 2
     waterLevel: 100.0,
     waterIsRising: 0.00055, // Water rising (because of player choice)
+    stillWater: 200.0,
     objects: [],
     jumpForce: -30,
+    background: [
+      { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
+    ],
     nextLevel() {
       if(player.x > 4200) {
         return 4;
@@ -151,6 +162,10 @@ let levels = [
   { // Start for level 2 (after Choice: Walk) -- 3
     waterLevel: 100.0,
     waterIsRising: 0.0,
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
@@ -199,6 +214,10 @@ let levels = [
   { // Start for level 2 (after Choice: Car) -- 4
     waterLevel: 100.0,
     waterIsRising: 0.00055, // Water rising (because of player choice)
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
     objects: [],
     jumpForce: -30,
     nextLevel() {
@@ -247,6 +266,10 @@ let levels = [
   { // Level 2 -- Choice: Sign (after Choice: Walk) -- 5
     waterLevel: 100.0,
     waterIsRising: 0.0,
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
@@ -300,6 +323,10 @@ let levels = [
   { // Level 2 -- Choice: Not sign (after Choice: Walk) -- 6
     waterLevel: 100.0,
     waterIsRising: 0.0,
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
@@ -346,6 +373,10 @@ let levels = [
   { // Level 2 -- Choice: Sign (after Choice: Car) -- 7
     waterLevel: 100.0,
     waterIsRising: 0.00055, // Water rising (because of player choice)
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
+    ],
     objects: [],
     jumpForce: -30,
     nextLevel() {
@@ -397,6 +428,10 @@ let levels = [
   { // Level 2 -- Choice: Not sign (after Choice: Car) -- 8
     waterLevel: 100.0,
     waterIsRising: 0.00055, // Water rising (because of player choice)
+    stillWater: 200.0,
+    background: [
+      { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
+    ],
     objects: [],
     jumpForce: -30,
     nextLevel() {
@@ -474,6 +509,10 @@ function preload() {
   // Player
   images.running1 = loadImage('content/graphic/running-1.png');
   images.running2 = loadImage('content/graphic/running-2.png');
+
+  // Background
+  images.backgroundshort = loadImage('content/graphic/background-short.png');
+  images.backgroundlong = loadImage('content/graphic/background-long.png');
 }
 
 // SETUP --- Canvas
@@ -492,6 +531,38 @@ function draw() {
 
   // Timer -- For timing talking
   time += deltaTime / 1000;
+
+  // Background
+  for (i = 0; i < levels[level].background.length; i++) {
+    image(images[levels[level].background[i].image], levels[level].background[i].x, levels[level].background[i].y, levels[level].background[i].width, levels[level].background[i].height);
+  }
+
+  /*
+   * Perlin Noise Wave (Water) --- Background
+   */
+  stroke(40, 51, 66);
+  fill(40, 51, 66);
+  // Draw a polygon out of the wave points
+  beginShape();
+
+  let xWater = 300; // 2D Noise
+
+  // Iterate over horizontal pixels
+  for (let x = player.x - canvas.width; x <= player.x + canvas.width; x += 10) {
+    // 2D Noise
+    let y = map(noise(xWater, yoff), 0, 2, canvas.height-levels[level].stillWater /* Height of waterflow */, canvas.height);
+
+    // Set the vertex
+    vertex(x, y);
+    // Increment x dimension for noise
+    xWater += 0.03
+  }
+  // Increment y dimension for noise
+  yoff += 0.001;
+  vertex(player.x+canvas.width, height);
+  vertex(player.x-canvas.width, height);
+
+  endShape(CLOSE);
 
   // Create platforms
   for (i = 0; i < levels[level].objects.length; i++) {
