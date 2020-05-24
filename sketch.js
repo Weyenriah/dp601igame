@@ -521,13 +521,13 @@ let levels = [
   },
 ]
 
-let time = 0;
+let time = 0; // Timer
 
-let level = 0;
+let level = 0; // Levelcounter
 
 let gravity = 9.82;
 
-let images = {};
+let images = {}; // Array for images
 
 // PRELOAD --- For images
 function preload() {
