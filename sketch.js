@@ -7,8 +7,8 @@ let canvas = {
   width: 1200
 };
 
-let debug = false
-let frozen = false
+// Allow or not allow movement
+let frozen = false;
 
 // Level specific information
 let levels = [
@@ -18,6 +18,9 @@ let levels = [
     stillWater: 200.0,
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 400, y: 300, width: 122, height: 528, hasGoal: 'false' }
     ],
     objects: [
       { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform
@@ -70,7 +73,7 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 500, width: 122, height: 528 }
+      { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -81,7 +84,7 @@ let levels = [
       return null;
     },
     reset() {
-      player.x = 4100;
+      player.x = 200;
       player.y = 0;
       player.speedX = 0;
       player.speedY = 0;
@@ -127,7 +130,7 @@ let levels = [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 300, width: 122, height: 528 }
+      { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'true' }
     ],
     nextLevel() {
       if(player.x > 4200) {
@@ -177,6 +180,9 @@ let levels = [
     stillWater: 200.0,
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'false' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -231,6 +237,9 @@ let levels = [
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
+    goals: [
+      { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'false' }
+    ],
     objects: [],
     jumpForce: -30,
     nextLevel() {
@@ -283,6 +292,9 @@ let levels = [
     stillWater: 200.0,
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -343,6 +355,9 @@ let levels = [
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
+    goals: [
+      { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
+    ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
@@ -394,6 +409,9 @@ let levels = [
     stillWater: 200.0,
     background: [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 4200, y: 50, width: 122, height: 528, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -30,
@@ -451,6 +469,9 @@ let levels = [
     stillWater: 200.0,
     background: [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
+    ],
+    goals: [
+      { image: 'goal', x: 4200, y: 50, width: 122, height: 528, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -30,
@@ -558,12 +579,12 @@ function draw() {
     image(images[levels[level].background[i].image], levels[level].background[i].x, levels[level].background[i].y, levels[level].background[i].width, levels[level].background[i].height);
   }
 
-  /* Goals
-  if(levels[level].goals.height !== '') {
-    for (i = 0; i < levels[level].goals.length; i++) {
-      image(images[levels[level].goals[i].image], levels[level].goals[i].x, levels[level].goals[i].y, levels[level].goals[i].width, levels[level].goals[i].height);
+  // Goals
+  for (i = 0; i < levels[level].goals.length; i++) {
+    if (levels[level].goals[i].hasGoal !== 'false') {
+      image(images[levels[level].goals[i].image], levels[level].goals[i].x, levels[level].goals[i].y, levels[level].goals[i].width/2, levels[level].goals[i].height/2);
     }
-  }*/
+  }
 
   /*
    * Perlin Noise Wave (Water) --- Background
@@ -620,7 +641,7 @@ function draw() {
   player.draw();
 
   // Move "player"
-  if (!frozen || debug) {
+  if (!frozen) {
     if (keyIsDown(LEFT_ARROW)) { // Left
       moveObject(player, -player.movementSpeed * deltaTime / 100, 0);
       document.getElementById('game-title').classList.add('remove');
