@@ -706,7 +706,10 @@ function draw() {
   // Iterate over horizontal pixels
   for (let x = player.x - canvas.width; x <= player.x + canvas.width; x += 10) {
     // Controls water level
-    levels[level].waterLevel += levels[level].waterIsRising;
+    console.log(time);
+    if (time >= 4) {
+      levels[level].waterLevel += levels[level].waterIsRising;
+    }
 
     // 2D Noise
     let y = map(noise(xoff, yoff), 0, 2, canvas.height-levels[level].waterLevel /* Height of waterflow */, canvas.height);
