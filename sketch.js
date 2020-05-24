@@ -707,7 +707,7 @@ function draw() {
   for (let x = player.x - canvas.width; x <= player.x + canvas.width; x += 10) {
     // Controls water level
     console.log(time);
-    if (time >= 4) {
+    if (time >= 3) {
       levels[level].waterLevel += levels[level].waterIsRising;
     }
 
