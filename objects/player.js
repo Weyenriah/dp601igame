@@ -6,13 +6,9 @@ let player = {
   y: 0,
   speedX: 0,
   speedY: 0,
-  height: 100,
+  height: 50,
   width: 50,
   movementSpeed: 30,
-  /*running: [
-    'running1',
-    'running2',
-  ],*/
   color: {
     r: 0,
     g: 0,
@@ -20,20 +16,9 @@ let player = {
   },
   stroke: 0,
   draw() {
-    stroke(this.stroke);
-    fill(this.color.r, this.color.g, this.color.b);
-    rect(this.x, this.y, this.width, this.height);
-    /*if(keyIsDown(LEFT_ARROW)) {
-      for(i = 0; i < this.running.length; i++) {
-        image(images[this.running[i]], this.x, this.y, this.width, this.height);
-      }
-    } else if(keyIsDown(RIGHT_ARROW)) {
-      rect(this.x, this.y, ((frameCount % 10) * -this.width) * deltaTime / 1000, this.height);
-    } else if(keyIsDown(UP_ARROW)) {
-      rect(this.x, this.y, this.width, /*((frameCount % 10) * this.height) * deltaTime / 1000);
-    } else {
-      rect(this.x, this.y, this.width, this.height);
-    }*/
+    // (outer) perimeter of player
+    let O = PI * this.width;
+    rotate_and_draw_image(images.player, this.x, this.y, this.width, this.height, this.x / O * 360);
   },
   isOnObject (object) {
     return player.y + player.height === object.y && player.x + player.width > object.x && player.x < object.x + object.width
@@ -42,3 +27,14 @@ let player = {
     return objects.some(this.isOnObject)
   }
 };
+
+// For rotating
+function rotate_and_draw_image(img, img_x, img_y, img_width, img_height, img_angle){
+  imageMode(CENTER);
+  translate(img_x+img_width/2, img_y+img_width/2);
+  rotate(PI/180*img_angle);
+  image(img, 0, 0, img_width, img_height);
+  rotate(-PI / 180 * img_angle);
+  translate(-(img_x+img_width/2), -(img_y+img_width/2));
+  imageMode(CORNER);
+}

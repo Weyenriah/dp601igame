@@ -552,6 +552,9 @@ function preload() {
   // Goal
   images.goal = loadImage('content/graphic/goal.png');
 
+  // Player
+  images.player = loadImage('content/graphic/player.png');
+
   // Background
   images.backgroundshort = loadImage('content/graphic/background-short.png');
   images.backgroundlong = loadImage('content/graphic/background-long.png');
@@ -706,7 +709,6 @@ function draw() {
   // Iterate over horizontal pixels
   for (let x = player.x - canvas.width; x <= player.x + canvas.width; x += 10) {
     // Controls water level
-    console.log(time);
     if (time >= 3) {
       levels[level].waterLevel += levels[level].waterIsRising;
     }
