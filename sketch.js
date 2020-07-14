@@ -10,6 +10,13 @@ let canvas = {
 // Allow or not allow movement
 let frozen = false;
 
+// Character sizing
+const denierHeight = 1570; // Denier
+const denierWidth = 731;
+const activistHeight = 1638; // Activist
+const activistWidth = 761;
+const characterScale = 1/3; // Scaling
+
 // Level specific information
 let levels = [
   { // Start level -- Dialog and choice -- 0
@@ -30,8 +37,7 @@ let levels = [
     jumpForce: -30,
     nextLevel() {
       if(mouseIsPressed) {
-        let mX = mouseX - player.x;
-
+        let mX = mouseX + player.x - canvas.width / 3;
         let pressedCharacter = levels[level].characters.find((c) => {
           return mX >= c.x &&
             mX <= c.x + c.width &&
@@ -54,8 +60,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3, level: 1 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3, level: 2 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale, level: 1 }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale, level: 2 }, // Denier
     ],
     talking: [
       { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Hey! Du där! Vart är du påväg? Du skulle ju hämta det viktiga dokumentet åt oss. Ta bilen, skynda dig!'},
@@ -111,8 +117,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
       { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 0.5, disappear: 6, msg: 'Toppen! Miljön tackar dig för ditt val!' },
@@ -166,8 +172,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
       { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 0.5, disappear: 6, msg: 'Hur kunde du? Tänk på miljön! Se på vattnet...' },
@@ -219,8 +225,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3, level: 5 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3, level: 6 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale, level: 5 }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale, level: 6 }, // Denier
     ],
     talking: [
       { x: 600, y: 550, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 9, msg: 'Här har vi det viktiga dokumentet! Men… Vad står det här? “Grön utveckling”? Det kräver ju åratal av ny forskning. Det hinner vi inte med!'},
@@ -275,8 +281,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3, level: 7 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3, level: 8 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale, level: 7 }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale, level: 8 }, // Denier
     ],
     talking: [
       { x: 600, y: 550, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Här har vi det viktiga dokumentet! Men… Vad står det här? “Grön utveckling”? Det kräver ju åratal av ny forskning. Det hinner vi inte med!'},
@@ -340,8 +346,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
       { x: 600, y: 550, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Jag fattar inte hur du kunde skriva på detta… Hoppas du ser upp, för nu kommer saker börja gå sönder. Lycka till att hoppa på dem OCH spara din energi.'},
@@ -395,8 +401,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
       { x: -130, y: 550, width: 300, height: 110, color: 255, stroke: 200, show: 0.5, disappear: 8, msg: 'Va? Hur kunde du inte skriva på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
@@ -455,8 +461,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
       { x: 600, y: 550, width: 300, height: 120, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Jag fattar inte hur du kunde skriva på detta… Hoppas du ser upp, för nu kommer saker börja gå sönder. Lycka till att hoppa på dom!'},
@@ -510,8 +516,8 @@ let levels = [
       frozen = false;
     },
     characters: [
-      { image: 'activist', x: -100, y: 180, width: 726/3, height: 1655/3 }, // Activist
-      { image: 'denier', x: 550, y: 170, width: 1003/3, height: 1669/3 }, // Denier
+      { image: 'activist', x: -110, y: 180, width: activistWidth * characterScale, height: activistHeight * characterScale }, // Activist
+      { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
       { x: -130, y: 550, width: 300, height: 120, color: 255, stroke: 200, show: 0.5, disappear: 8, msg: 'Va? Hur kunde du inte skriva på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
