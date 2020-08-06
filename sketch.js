@@ -29,14 +29,6 @@ let levels = [
     goals: [
       { image: 'goal', x: 400, y: 300, width: 122, height: 528, hasGoal: 'false' }
     ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
-    ],
-    gotCheckpoint() {
-      if(this.checkpoints.hasCheckpoint !== 'false') {
-          return null;
-      }
-    },
     objects: [
       { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform
       { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
@@ -98,14 +90,6 @@ let levels = [
       }
       return null;
     },
-    checkpoints: [
-      { x: 500, y: 370, width: 10, height: 50, hasCheckpoint: 'true' },
-    ],
-    gotCheckpoint() {
-      if(this.checkpoints.hasCheckpoint !== 'false') {
-          return 1;
-      }
-    },
     reset() {
       player.x = 200;
       player.y = 0;
@@ -154,9 +138,6 @@ let levels = [
     ],
     goals: [
       { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'true' }
-    ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
     ],
     nextLevel() {
       if(player.x > 4200) {
@@ -209,9 +190,6 @@ let levels = [
     ],
     goals: [
       { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'false' }
-    ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -269,9 +247,6 @@ let levels = [
     goals: [
       { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'false' }
     ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
-    ],
     objects: [],
     jumpForce: -30,
     nextLevel() {
@@ -327,9 +302,6 @@ let levels = [
     ],
     goals: [
       { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
-    ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -393,9 +365,6 @@ let levels = [
     goals: [
       { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
     ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
-    ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
@@ -450,9 +419,6 @@ let levels = [
     ],
     goals: [
       { image: 'goal', x: 4200, y: 50, width: 122, height: 528, hasGoal: 'true' }
-    ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
     ],
     objects: [],
     jumpForce: -30,
@@ -513,9 +479,6 @@ let levels = [
     ],
     goals: [
       { image: 'goal', x: 4200, y: 50, width: 122, height: 528, hasGoal: 'true' }
-    ],
-    checkpoints: [
-      { x: 450, y: 370, width: 10, height: 50, hasCheckpoint: 'false' },
     ],
     objects: [],
     jumpForce: -30,
@@ -630,15 +593,6 @@ function draw() {
   for (i = 0; i < levels[level].goals.length; i++) {
     if (levels[level].goals[i].hasGoal !== 'false') {
       image(images[levels[level].goals[i].image], levels[level].goals[i].x, levels[level].goals[i].y, levels[level].goals[i].width/2, levels[level].goals[i].height/2);
-    }
-  }
-
-  // Checkpoints
-  for (i = 0; i < levels[level].checkpoints.length; i++) {
-    if(levels[level].checkpoints[i].hasCheckpoint !== 'false') {
-      fill(255);
-      stroke(255);
-      rect(levels[level].checkpoints[i].x, levels[level].checkpoints[i].y, levels[level].checkpoints[i].width, levels[level].checkpoints[i].height);
     }
   }
 
@@ -809,12 +763,6 @@ function draw() {
   if(nextLevel !== null) {
     level = nextLevel;
     levels[level].reset();
-  }
-
-  let checkpoint = levels[level].gotCheckpoint();
-
-  if(checkpoint !== null) {
-    console.log('Checkpoint!');
   }
 }
 
