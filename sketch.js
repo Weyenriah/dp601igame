@@ -560,7 +560,28 @@ function preload() {
   images.goal = loadImage('content/graphic/goal.png');
 
   // Player
-  images.player = loadImage('content/graphic/player.png');
+  images.player = loadImage('content/graphic/player_still.png');
+  images.playerjump = loadImage('content/graphic/player_jump.png');
+
+  const w1 = loadImage('content/graphic/player_walk_1.png');
+  const w2 = loadImage('content/graphic/player_walk_2.png');
+  const w3 = loadImage('content/graphic/player_walk_3.png');
+  const w4 = loadImage('content/graphic/player_walk_4.png');
+  const w5 = loadImage('content/graphic/player_walk_5.png');
+  const w6 = loadImage('content/graphic/player_walk_6.png');
+
+  images.playerwalk = [
+      w1,
+      w2,
+      w3,
+      w4,
+      w5,
+      w6,
+      w5,
+      w4,
+      w3,
+      w2,
+  ];
 
   // Background
   images.backgroundshort = loadImage('content/graphic/background-short.png');
