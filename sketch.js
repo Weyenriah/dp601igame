@@ -195,13 +195,12 @@ let levels = [
     jumpForce: -20, // Jumpforce lower (because of player choice)
     nextLevel() {
       if(mouseIsPressed) {
-        let mX = mouseX - player.x;
-
+        let mX = mouseX + player.x - canvas.width / 3;
         let pressedCharacter = levels[level].characters.find((c) => {
           return mX >= c.x &&
-            mX <= c.x + c.width &&
-            mouseY >= c.y &&
-            mouseY <= c.y + c.height;
+              mX <= c.x + c.width &&
+              mouseY >= c.y &&
+              mouseY <= c.y + c.height;
         });
 
         if (pressedCharacter != null) {
@@ -251,13 +250,12 @@ let levels = [
     jumpForce: -30,
     nextLevel() {
       if(mouseIsPressed) {
-        let mX = mouseX - player.x;
-
+        let mX = mouseX + player.x - canvas.width / 3;
         let pressedCharacter = levels[level].characters.find((c) => {
           return mX >= c.x &&
-            mX <= c.x + c.width &&
-            mouseY >= c.y &&
-            mouseY <= c.y + c.height;
+              mX <= c.x + c.width &&
+              mouseY >= c.y &&
+              mouseY <= c.y + c.height;
         });
 
         if (pressedCharacter != null) {
