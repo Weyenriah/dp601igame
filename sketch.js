@@ -27,12 +27,12 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 400, y: 300, width: 122, height: 528, hasGoal: 'false' }
+      { image: 'goal', x: 400, y: 300, width: 107, height: 517, hasGoal: 'false' }
     ],
     objects: [
-      { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform
-      { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
-      { type: 'normal', image: 'wall', x: 1450, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+      { type: 'normal', image: 'floorlong', x: 65, y: 500, width: 5595/4, height: 2238/4 }, // Start platform
+      { type: 'normal', image: 'level0wall', x: -340, y: -349, width: 1748/5, height: 5399/5 }, // Wall START
+      { type: 'normal', image: 'level0wall', x: 1450, y: -349, width: 1748/5, height: 5399/5 }, // Wall END
     ],
     jumpForce: -30,
     nextLevel() {
@@ -80,7 +80,7 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
+      { image: 'goal', x: 4200, y: 250, width: 107, height: 517, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -96,7 +96,7 @@ let levels = [
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
-        { type: 'normal', image: 'floorlongstop', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform ("Floor")
+        { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5595/4, height: 2238/4 }, // Start platform ("Floor")
         { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 }, // 1
         { type: 'normal', image: 'platform', x: 1100, y: 400, width: 250, height: 30 }, // 2
@@ -110,7 +110,7 @@ let levels = [
         { type: 'normal', image: 'platform', x: 3400, y: 490, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3600, y: 490, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3800, y: 550, width: 250, height: 30 },
-        { type: 'normal', image: 'floorlongstop', x: 4100, y: 500, width: 5810/4, height: 2238/4 }, // End platform
+        { type: 'normal', image: 'floorlong', x: 4100, y: 500, width: 5595/4, height: 2238/4 }, // End platform
         { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
@@ -137,7 +137,7 @@ let levels = [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'true' }
+      { image: 'goal', x: 4200, y: 150, width: 107, height: 517, hasGoal: 'true' }
     ],
     nextLevel() {
       if(player.x > 4200) {
@@ -151,8 +151,8 @@ let levels = [
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
-        { type: 'normal', image: 'floorlongstop', x: -1200, y: 500, width: 5810/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'wall', x: -1500, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
+        { type: 'normal', image: 'floorlong', x: -1100, y: 500, width: 5595/4, height: 2238/4 }, // Start platform ("Floor")
+        { type: 'normal', image: 'level1wallcar', x: -1500, y: -256, width: 1744/5, height: 4939/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 }, // 1
         { type: 'normal', image: 'platform', x: 800, y: 200, width: 250, height: 30 }, // 2
         { type: 'normal', image: 'platform', x: 1200, y: 300, width: 50, height: 30 }, // 3 ...
@@ -165,8 +165,8 @@ let levels = [
         { type: 'normal', image: 'platform', x: 3100, y: 400, width: 250, height: 30 },
         { type: 'normal', image: 'platform', x: 3500, y: 200, width: 250, height: 30 },
         { type: 'normal', image: 'platform', x: 3850, y: 300, width: 50, height: 30 },
-        { type: 'normal', image: 'floorlongstop', x: 4100, y: 400, width: 5810/4, height: 2238/4 }, // End platform
-        { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'floorlong', x: 4100, y: 400, width: 5505/4, height: 2238/4 }, // End platform
+        { type: 'normal', image: 'level1wallcar', x: 4810, y: -358, width: 1744/5, height: 4939/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -189,7 +189,7 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'false' }
+      { image: 'goal', x: 4200, y: 150, width: 107, height: 517, hasGoal: 'false' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -245,7 +245,7 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 150, width: 122, height: 528, hasGoal: 'false' }
+      { image: 'goal', x: 4200, y: 150, width: 107, height: 517, hasGoal: 'false' }
     ],
     objects: [],
     jumpForce: -30,
@@ -274,8 +274,8 @@ let levels = [
       player.speedY = 0;
       this.objects = [
         { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform
-        { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
-        { type: 'normal', image: 'wall', x: 1450, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'level1wallcar', x: -380, y: -256, width: 1744/5, height: 4939/5  }, // Wall START
+        { type: 'normal', image: 'level1wallcar', x: 1445, y: -256, width: 1744/5, height: 4939/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -301,7 +301,7 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
+      { image: 'goal', x: 4200, y: 250, width: 107, height: 517, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -363,7 +363,7 @@ let levels = [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 250, width: 122, height: 528, hasGoal: 'true' }
+      { image: 'goal', x: 4200, y: 250, width: 107, height: 517, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -20, // Jumpforce lower (because of player choice)
@@ -418,7 +418,7 @@ let levels = [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 50, width: 122, height: 528, hasGoal: 'true' }
+      { image: 'goal', x: 4200, y: 50, width: 107, height: 517, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -30,
@@ -478,7 +478,7 @@ let levels = [
       { image: 'backgroundlong', x: -1555, y: 0, width: 10898, height: 1010 }
     ],
     goals: [
-      { image: 'goal', x: 4200, y: 50, width: 122, height: 528, hasGoal: 'true' }
+      { image: 'goal', x: 4200, y: 50, width: 107, height: 517, hasGoal: 'true' }
     ],
     objects: [],
     jumpForce: -30,
@@ -498,8 +498,8 @@ let levels = [
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
-        { type: 'normal', image: 'floorlongstop', x: -1200, y: 500, width: 5810/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'wall', x: -550, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
+        { type: 'normal', image: 'floorlong', x: -1050, y: 500, width: 5594/4, height: 2238/4 }, // Start platform ("Floor")
+        { type: 'normal', image: 'level2wallnotsign', x: -1100, y: -257, width: 1744/5, height: 4939/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 },
         { type: 'moving', image: 'moving', x: 700, y: 200, width: 250, height: 30, speedX: 10, leftMostX: 700, rightMostX: (700 + 2 * 250), movementSpeed: 10 }, // Moving platforms
         { type: 'normal', image: 'platform', x: 1600, y: 200, width: 50, height: 30 },
@@ -509,8 +509,8 @@ let levels = [
         { type: 'moving', image: 'moving', x: 2700, y: 350, width: 250, height: 30, speedX: 10, leftMostX: 2700, rightMostX: (2700 + 2 * 250), movementSpeed: 10 }, // Moving platforms
         { type: 'normal', image: 'platform', x: 3600, y: 300, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3850, y: 300, width: 50, height: 30 },
-        { type: 'normal', image: 'floorlongstop', x: 4100, y: 300, width: 5810/4, height: 2238/4 }, // End platform ("Floor")
-        { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'floorlong', x: 4100, y: 300, width: 5594/4, height: 2238/4 }, // End platform ("Floor")
+        { type: 'normal', image: 'level2wallnotsign', x: 4950, y: -457, width: 1744/5, height: 4939/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -555,6 +555,9 @@ function preload() {
 
   // Wall Images
   images.wall = loadImage('content/graphic/wall.png');
+  images.level0wall = loadImage('content/graphic/wall_level0.png');
+  images.level1wallcar = loadImage('content/graphic/wall_level1car.png');
+  images.level2wallnotsign = loadImage('content/graphic/wall_level2notwrite.png');
 
   // Goal
   images.goal = loadImage('content/graphic/goal.png');
