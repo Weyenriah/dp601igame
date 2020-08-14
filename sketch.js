@@ -548,11 +548,8 @@ function preload() {
   images.breaking3 = loadImage('content/graphic/breaking-platform-3.png');
   images.breaking4 = loadImage('content/graphic/breaking-platform-4.png');
   images.floorlong = loadImage('content/graphic/floor-long.png');
-  images.floorlongstop = loadImage('content/graphic/floor-long-with-stop.png');
-  images.floorshort = loadImage('content/graphic/floor-short.png');
 
   // Wall Images
-  images.wall = loadImage('content/graphic/wall.png');
   images.level0wall = loadImage('content/graphic/wall_level0.png');
   images.level1wallcar = loadImage('content/graphic/wall_level1car.png');
   images.level1wallwalk = loadImage('content/graphic/wall_level1walk.png');
