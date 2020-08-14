@@ -97,7 +97,7 @@ let levels = [
       player.speedY = 0;
       this.objects = [
         { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5595/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
+        { type: 'normal', image: 'level1wallwalk', x: -380, y: -170, width: 1744/5, height: 4484/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 }, // 1
         { type: 'normal', image: 'platform', x: 1100, y: 400, width: 250, height: 30 }, // 2
         { type: 'normal', image: 'platform', x: 1400, y: 370, width: 250, height: 30 }, // 3 ...
@@ -111,7 +111,7 @@ let levels = [
         { type: 'normal', image: 'platform', x: 3600, y: 490, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3800, y: 550, width: 250, height: 30 },
         { type: 'normal', image: 'floorlong', x: 4100, y: 500, width: 5595/4, height: 2238/4 }, // End platform
-        { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'level1wallwalk', x: 4850, y: -167, width: 1744/5, height: 4484/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -217,8 +217,8 @@ let levels = [
       player.speedY = 0;
       this.objects = [
         { type: 'normal', image: 'floorlong', x: 0, y: 500, width: 5810/4, height: 2238/4 }, // Start platform
-        { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
-        { type: 'normal', image: 'wall', x: 1450, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'level1wallwalk', x: -380, y: -165, width: 1744/5, height: 4484/5  }, // Wall START
+        { type: 'normal', image: 'level1wallwalk', x: 1450, y: -165, width: 1744/5, height: 4484/5  }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -318,8 +318,8 @@ let levels = [
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
-        { type: 'normal', image: 'floorshort', x: 0, y: 500, width: 2952/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
+        { type: 'normal', image: 'floorlong', x: -400, y: 500, width: 5595/4, height: 2238/4 }, // Start platform ("Floor")
+        { type: 'normal', image: 'level2wallwalksign', x: -380, y: 197, width: 1744/5, height: 2673/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 }, // 1
         { type: 'normal', image: 'platform', x: 650, y: 290, width: 250, height: 30 }, // 2
         { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 950, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms || 3 ...
@@ -337,8 +337,8 @@ let levels = [
         { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3400, y: 430, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3700, y: 430, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 4000, y: 420, width: 50, height: 30 },
-        { type: 'normal', image: 'floorlongstop', x: 4100, y: 500, width: 5810/4, height: 2238/4 }, // End platform
-        { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'floorlong', x: 4100, y: 500, width: 5595/4, height: 2238/4 }, // End platform
+        { type: 'normal', image: 'level2wallwalksign', x: 4850, y: 197, width: 1744/5, height: 2673/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -380,8 +380,8 @@ let levels = [
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
-        { type: 'normal', image: 'floorshort', x: 0, y: 500, width: 2952/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'wall', x: -380, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
+        { type: 'normal', image: 'floorlong', x: 0, y: 490, width: 5595/4, height: 2238/4 }, // Start platform ("Floor")
+        { type: 'normal', image: 'level2wallwalknotsign', x: -380, y: -117, width: 1744/5, height: 4213/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 }, // 1
         { type: 'normal', image: 'platform', x: 650, y: 290, width: 250, height: 30 }, // 2
         { type: 'moving', image: 'moving', x: 950, y: 200, width: 250, height: 30, speedX: 10, leftMostX: 950, rightMostX: (950 + 2 * 250), movementSpeed: 10 }, // Moving platforms || 3 ...
@@ -392,8 +392,8 @@ let levels = [
         { type: 'normal', image: 'platform', x: 3000, y: 240, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3200, y: 260, width: 50, height: 30 },
         { type: 'moving', image: 'moving', x: 3350, y: 240, width: 250, height: 30, speedX: 10, leftMostX: 3350, rightMostX: (3350 + 2 * 250), movementSpeed: 10 }, // Moving platforms
-        { type: 'normal', image: 'floorlongstop', x: 4100, y: 500, width: 5810/4, height: 2238/4 }, // End platform
-        { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'floorlong', x: 4100, y: 500, width: 5595/4, height: 2238/4 }, // End platform
+        { type: 'normal', image: 'level2wallwalknotsign', x: 4900, y: 0, width: 1744/5, height: 4213/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -436,8 +436,8 @@ let levels = [
       player.speedX = 0;
       player.speedY = 0;
       this.objects = [
-        { type: 'normal', image: 'floorlongstop', x: -1100, y: 500, width: 5810/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'wall', x: -550, y: 0, width: 1747/5, height: 4071/5 }, // Wall START
+        { type: 'normal', image: 'floorlong', x: -1100, y: 500, width: 5595/4, height: 2238/4 }, // Start platform ("Floor")
+        { type: 'normal', image: 'level2wallcarsign', x: -680, y: -257, width: 1744/5, height: 4939/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 450, y: 400, width: 250, height: 30 },
         { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 800, y: 200, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 1000, y: 400, width: 50, height: 30 },
@@ -452,8 +452,8 @@ let levels = [
         { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3100, y: 400, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
         { type: 'normal', image: 'platform', x: 3500, y: 360, width: 50, height: 30 },
         { type: 'breaking', image1: 'breaking1', image2: 'breaking2', image3: 'breaking3', image4: 'breaking4', x: 3700, y: 380, width: 250, height: 30, touches: false, health: 5.0 }, // Breaking platforms
-        { type: 'normal', image: 'floorlongstop', x: 4100, y: 300, width: 5810/4, height: 2238/4 }, // End platform
-        { type: 'normal', image: 'wall', x: 4900, y: 0, width: 1747/5, height: 4071/5 }, // Wall END
+        { type: 'normal', image: 'floorlong', x: 4100, y: 300, width: 5595/4, height: 2238/4 }, // End platform
+        { type: 'normal', image: 'level2wallcarsign', x: 4950, y: -455, width: 1744/5, height: 4939/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -497,7 +497,7 @@ let levels = [
       player.speedY = 0;
       this.objects = [
         { type: 'normal', image: 'floorlong', x: -1050, y: 500, width: 5594/4, height: 2238/4 }, // Start platform ("Floor")
-        { type: 'normal', image: 'level2wallnotsign', x: -1100, y: -257, width: 1744/5, height: 4939/5 }, // Wall START
+        { type: 'normal', image: 'level2wallcarnotsign', x: -1100, y: -257, width: 1744/5, height: 4939/5 }, // Wall START
         { type: 'normal', image: 'platform', x: 400, y: 400, width: 250, height: 30 },
         { type: 'moving', image: 'moving', x: 700, y: 200, width: 250, height: 30, speedX: 10, leftMostX: 700, rightMostX: (700 + 2 * 250), movementSpeed: 10 }, // Moving platforms
         { type: 'normal', image: 'platform', x: 1600, y: 200, width: 50, height: 30 },
@@ -508,7 +508,7 @@ let levels = [
         { type: 'normal', image: 'platform', x: 3600, y: 300, width: 50, height: 30 },
         { type: 'normal', image: 'platform', x: 3850, y: 300, width: 50, height: 30 },
         { type: 'normal', image: 'floorlong', x: 4100, y: 300, width: 5594/4, height: 2238/4 }, // End platform ("Floor")
-        { type: 'normal', image: 'level2wallnotsign', x: 4950, y: -457, width: 1744/5, height: 4939/5 }, // Wall END
+        { type: 'normal', image: 'level2wallcarnotsign', x: 4950, y: -457, width: 1744/5, height: 4939/5 }, // Wall END
       ]
       this.waterLevel = 100.0;
       time = 0.0;
@@ -555,7 +555,11 @@ function preload() {
   images.wall = loadImage('content/graphic/wall.png');
   images.level0wall = loadImage('content/graphic/wall_level0.png');
   images.level1wallcar = loadImage('content/graphic/wall_level1car.png');
-  images.level2wallnotsign = loadImage('content/graphic/wall_level2notwrite.png');
+  images.level1wallwalk = loadImage('content/graphic/wall_level1walk.png');
+  images.level2wallcarnotsign = loadImage('content/graphic/wall_level2notwrite.png');
+  images.level2wallwalknotsign = loadImage('content/graphic/wall_level2walknotsign.png');
+  images.level2wallcarsign = loadImage('content/graphic/wall_level2carsign.png');
+  images.level2wallwalksign = loadImage('content/graphic/wall_level2walksign.png');
 
   // Goal
   images.goal = loadImage('content/graphic/goal.png');
