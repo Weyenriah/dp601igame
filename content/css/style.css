@@ -33,14 +33,21 @@ html, body {
     color: white;
 }
 #game-title-view h1 {
-    margin-left: 50px;
+    margin-left: 34px;
+    font-weight: normal;
 }
 #keys {
-    margin-top: 20px;
-    margin-right: 25px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 #keys img {
     height: 150px;
+}
+
+#version {
+    height: 25px;
+    align-self: flex-end;
+    opacity: 0.5;
 }
 
 .remove {
