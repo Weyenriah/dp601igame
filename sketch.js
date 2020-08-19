@@ -65,9 +65,9 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale, level: 2 }, // Denier
     ],
     talking: [
-      { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Hey! Du där! Vart är du påväg? Du skulle ju hämta det viktiga dokumentet åt oss. Ta bilen, skynda dig!'},
-      { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 7, disappear: 11, msg: 'Det är inte så långt dit, det är bäst att gå. Snällare för miljön.' },
-      { x: 600, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 11, disappear: 17, msg: 'Nehe! Det är rätt långt dit, bäst att ta bilen. Går fortare, och man har energi kvar när man kommer fram.' },
+      { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Hallå! Du där! Visst var det du som skulle hämta klimatrapporten? Låna min bil så kommer du fram fort.'},
+      { x: -130, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 7, disappear: 11, msg: 'Det är inte så långt dit du ska, varför inte gå? Det är så mycket snällare för miljön!' },
+      { x: 600, y: 550, width: 300, height: 135, color: 255, stroke: 200, show: 11, disappear: 17, msg: 'Men, om du går behöver du spara på energin annars orkar du inte hela vägen, alltså kommer det gå mycket långsammare! Det har vi inte tid för.' },
       { x: -130, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 17, disappear: 45, msg: 'Klicka på mig! | VAL: Gå!' },
       { x: 600, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 17, disappear: 45, msg: 'Nej! Klicka på mig! | VAL: Ta bilen!' },
     ]
@@ -123,8 +123,8 @@ let levels = [
     ],
     talking: [
       { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 0.5, disappear: 6, msg: 'Toppen! Miljön tackar dig för ditt val!' },
-      { x: 600, y: 550, width: 300, height: 100, color: 255, stroke: 200, show: 6, disappear: 11, msg: 'Se upp bara, nu behöver du spara på din energi - inga höga hopp för dig!'},
-      { x: -130, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 11, disappear: 15, msg: 'Äsch, det spelar väl ingen roll…' },
+      { x: 600, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 6, disappear: 11, msg: 'Se upp bara, nu behöver du spara på din energi - inga höga hopp för dig!'},
+      { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 11, disappear: 15, msg: 'Äsch, det spelar väl ändå ingen roll nu när vi räddar miljön…' },
     ]
   },
   { // Level 1 -- Choice: Car -- 2
@@ -178,7 +178,7 @@ let levels = [
     ],
     talking: [
       { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 0.5, disappear: 6, msg: 'Hur kunde du? Tänk på miljön! Se på vattnet...' },
-      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 6, disappear: 11, msg: 'Äsch, strunta i vattnet, det är ingen fara!'},
+      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 6, disappear: 11, msg: 'Äsch, strunta i vattnet, det är ingen fara! Hoppa vidare du!'},
     ]
   },
   { // Start for level 2 (after Choice: Walk) -- 3
@@ -229,16 +229,16 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale, level: 6 }, // Denier
     ],
     talking: [
-      { x: 600, y: 550, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 9, msg: 'Här har vi det viktiga dokumentet! Men… Vad står det här? “Grön utveckling”? Det kräver ju åratal av ny forskning. Det hinner vi inte med!'},
-      { x: -130, y: 550, width: 300, height: 100, color: 255, stroke: 200, show: 9, disappear: 13, msg: 'Klart vi hinner med! Vi hinner inte med att miljön fallerar dock, skriv på så vi kan börja!' },
-      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 13, disappear: 18, msg: 'Nej, skriv inte på! Saker kommer börja falla med kontraktet också.' },
-      { x: -130, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Klicka på mig! | VAL: Skriv på!' },
-      { x: 600, y: 550, width: 300, height: 65, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Nej! Klicka på mig! | VAL: Skriv inte på!' },
+      { x: 600, y: 530, width: 300, height: 158, color: 255, stroke: 200, show: 0.5, disappear: 9, msg: 'Här har vi klimatrapporten! Men… Vad står det här? “Omröstning om grön utveckling”? Det kräver ju åratal av ny forskning. Vad ska vi göra tills dess? Vara strömlösa? Sådant hinner vi inte med.'},
+      { x: -130, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 9, disappear: 13, msg: 'Klart vi hinner med! Vi hinner inte med att miljön fallerar dock, så vi borde rösta för det!' },
+      { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 13, disappear: 18, msg: 'Nej, rösta emot annars kommer saker börja gå sönder under våra fötter för att saker går så långsamt...' },
+      { x: -130, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Klicka på mig! | VAL: Rösta för!' },
+      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Nej! Klicka på mig! | VAL: Rösta emot!' },
     ]
   },
   { // Start for level 2 (after Choice: Car) -- 4
     waterLevel: 100.0,
-    waterIsRising: 0.00055, // Water rising (because of player choice)
+    waterIsRising: 0.0, // Water rising (because of player choice)
     stillWater: 200.0,
     background: [
       { image: 'backgroundshort', x: -440, y: 0, width: 5459, height: 1010 }
@@ -284,11 +284,11 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale, level: 8 }, // Denier
     ],
     talking: [
-      { x: 600, y: 550, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Här har vi det viktiga dokumentet! Men… Vad står det här? “Grön utveckling”? Det kräver ju åratal av ny forskning. Det hinner vi inte med!'},
-      { x: -130, y: 550, width: 300, height: 100, color: 255, stroke: 200, show: 7, disappear: 13, msg: 'Klart vi hinner med! Vi hinner inte med att miljön fallerar dock, skriv på så vi kan börja!' },
-      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 13, disappear: 18, msg: 'Nej, skriv inte på! Saker kommer börja falla med kontraktet också.' },
-      { x: -130, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Klicka på mig! | VAL: Skriv på!' },
-      { x: 600, y: 550, width: 300, height: 65, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Nej! Klicka på mig! | VAL: Skriv inte på!' },
+      { x: 600, y: 530, width: 300, height: 158, color: 255, stroke: 200, show: 0.5, disappear: 9, msg: 'Här har vi klimatrapporten! Men… Vad står det här? “Omröstning om grön utveckling”? Det kräver ju åratal av ny forskning. Vad ska vi göra tills dess? Vara strömlösa? Sådant hinner vi inte med.'},
+      { x: -130, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 9, disappear: 13, msg: 'Klart vi hinner med! Vi hinner inte med att miljön fallerar dock, så vi borde rösta för det!' },
+      { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 13, disappear: 18, msg: 'Nej, rösta emot annars kommer saker börja gå sönder under våra fötter för att saker går så långsamt...' },
+      { x: -130, y: 550, width: 300, height: 45, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Klicka på mig! | VAL: Rösta för!' },
+      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 18, disappear: 45, msg: 'Nej! Klicka på mig! | VAL: Rösta emot!' },
     ]
   },
   { // Level 2 -- Choice: Sign (after Choice: Walk) -- 5
@@ -349,7 +349,7 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
-      { x: 600, y: 550, width: 300, height: 130, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Jag fattar inte hur du kunde skriva på detta… Hoppas du ser upp, för nu kommer saker börja gå sönder. Lycka till att hoppa på dem OCH spara din energi.'},
+      { x: 600, y: 550, width: 300, height: 135, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Jag fattar inte hur du kunde rösta på detta… Hoppas du ser upp, för nu kommer saker börja gå sönder. Lycka till att hoppa på dem OCH spara din energi.'},
       { x: -130, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 7, disappear: 12, msg: 'Äsch, inte så farligt! Miljön kommer överleva tack vare dig!' },
     ]
   },
@@ -404,8 +404,8 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
-      { x: -130, y: 550, width: 300, height: 110, color: 255, stroke: 200, show: 0.5, disappear: 8, msg: 'Va? Hur kunde du inte skriva på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
-      { x: 600, y: 550, width: 300, height: 110, color: 255, stroke: 200, show: 8, disappear: 15, msg: 'Riktigt bra! Utvecklingen kommer gå snabbt framåt! Se upp dock, du behöver fortfarande spara på energi.'},
+      { x: -130, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 0.5, disappear: 8, msg: 'Va? Hur kunde du inte rösta på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
+      { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 8, disappear: 15, msg: 'Riktigt bra! Utvecklingen och ekonomin kommer gå snabbt framåt! Se upp dock, du behöver fortfarande spara på energi.'},
     ]
   },
   { // Level 2 -- Choice: Sign (after Choice: Car) -- 7
@@ -464,8 +464,8 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
-      { x: 600, y: 550, width: 300, height: 120, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Jag fattar inte hur du kunde skriva på detta… Hoppas du ser upp, för nu kommer saker börja gå sönder. Lycka till att hoppa på dom!'},
-      { x: -130, y: 550, width: 300, height: 120, color: 255, stroke: 200, show: 7, disappear: 12, msg: 'Äsch, inte så farligt! Miljön kommer överleva tack vare dig! Men se upp, vattnet ökar fortfarande.' },
+      { x: 600, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 0.5, disappear: 7, msg: 'Jag fattar inte hur du kunde rösta på detta… Hoppas du ser upp, för nu kommer saker börja gå sönder. Lycka till att hoppa på dem!'},
+      { x: -130, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 7, disappear: 12, msg: 'Äsch, inte så farligt! Miljön kommer överleva tack vare dig! Men se upp, vattnet ökar fortfarande.' },
     ]
   },
   { // Level 2 -- Choice: Not sign (after Choice: Car) -- 8
@@ -519,9 +519,9 @@ let levels = [
       { image: 'denier', x: 630, y: 190, width: denierWidth * characterScale, height: denierHeight * characterScale }, // Denier
     ],
     talking: [
-      { x: -130, y: 550, width: 300, height: 120, color: 255, stroke: 200, show: 0.5, disappear: 8, msg: 'Va? Hur kunde du inte skriva på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
-      { x: 600, y: 550, width: 300, height: 70, color: 255, stroke: 200, show: 8, disappear: 11, msg: 'Riktigt bra! Utvecklingen kommer gå snabbt framåt!'},
-      { x: -130, y: 550, width: 300, height: 100, color: 255, stroke: 200, show: 11, disappear: 14, msg: 'Se till att vara snabb bara, för nu rör sig marken OCH vattnet ökar. Världen går under…' },
+      { x: -130, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 0.5, disappear: 8, msg: 'Va? Hur kunde du inte rösta på det? Saker blir bara mer och mer mekaniskt… Så mycket avgaser i atmosfären...' },
+      { x: 600, y: 550, width: 300, height: 90, color: 255, stroke: 200, show: 8, disappear: 11, msg: 'Riktigt bra! Utvecklingen och ekonomin kommer gå snabbt framåt!'},
+      { x: -130, y: 550, width: 300, height: 113, color: 255, stroke: 200, show: 11, disappear: 14, msg: 'Se till att vara snabb bara, för nu rör sig marken OCH vattnet ökar. Världen håller verkligen på att gå under…' },
     ]
   },
 ]
